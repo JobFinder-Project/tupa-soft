@@ -1,0 +1,53 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: tupa-soft-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - '${DB_PORT:-5432}:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/db/sql/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      interval: 5s
+      timeout: 3s
+      retries: 15
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: tupa-soft-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: ${PORT_BACKEND:-3333}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+    ports:
+      - '${PORT_BACKEND:-3333}:${PORT_BACKEND:-3333}'
+    command: npm run start
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: tupa-soft-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - '${PORT_FRONTEND:-5173}:${PORT_FRONTEND:-5173}'
+    environment:
+      API_PROXY_TARGET: http://backend:${PORT_BACKEND:-3333}
+
+volumes:
+  postgres_data:
