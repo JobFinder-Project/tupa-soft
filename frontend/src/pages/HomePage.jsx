@@ -42,12 +42,41 @@ export function HomePage() {
 
   useScrollReveal()
 
+  function pushToast(message, type = 'success') {
+    const id = crypto.randomUUID()
+    setToasts((current) => [...current, { id, message, type }])
+
+    setTimeout(() => {
+      setToasts((current) => current.filter((toast) => toast.id !== id))
+    }, 2800)
+  }
+
   useEffect(() => {
-    getCatalogData().then((catalog) => {
-      setCategories(catalog.categories)
-      setProducts(catalog.products)
-      setTestimonials(catalog.testimonials)
-    })
+    let isMounted = true
+
+    async function loadCatalog() {
+      try {
+        const catalog = await getCatalogData()
+
+        if (!isMounted) {
+          return
+        }
+
+        setCategories(catalog.categories)
+        setProducts(catalog.products)
+        setTestimonials(catalog.testimonials)
+      } catch {
+        if (isMounted) {
+          pushToast('Nao foi possivel carregar dados da API.', 'error')
+        }
+      }
+    }
+
+    loadCatalog()
+
+    return () => {
+      isMounted = false
+    }
   }, [])
 
   useEffect(() => {
@@ -61,15 +90,6 @@ export function HomePage() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  function pushToast(message, type = 'success') {
-    const id = crypto.randomUUID()
-    setToasts((current) => [...current, { id, message, type }])
-
-    setTimeout(() => {
-      setToasts((current) => current.filter((toast) => toast.id !== id))
-    }, 2800)
-  }
 
   function handleAddToCart(product) {
     const added = addToCart(product)
