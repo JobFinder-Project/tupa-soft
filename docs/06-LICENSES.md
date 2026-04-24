@@ -1,14 +1,13 @@
 # 📜 Licenças
 
-**Versão:** 1.0.0  
-**Última atualização:** 7 de Abril de 2026
+**Versão:** 2.0.0  
+**Última atualização:** 23 de Abril de 2026
 
 ---
 
 ## 📋 Índice de Licenças
 
 - [Licença Proprietária TupãSoft](#-licença-proprietária)
-- [Dependências (Nenhuma)](#-dependências-de-software)
 - [Licenças de Terceiros](#-serviços-terceiros)
 - [Termos de Uso](#-termos-de-uso)
 - [Termos de Serviço](#-termos-de-serviço)
@@ -31,7 +30,7 @@ distribuída ou comercializada sem permissão explícita.
 ### Direitos Reservados
 
 **Proprietário:** TupãSoft Software Solutions LTDA  
-**Localização:** Manaus, Amazonas — Brasil  
+**Localização:** Itacoatiara, Amazonas — Brasil  
 **CNPJ:** [A preencher]  
 **Contato:** legal@tupansoft.com.br
 
@@ -91,48 +90,9 @@ Se você quiser contribuir com código:
 
 ---
 
-## 📦 Dependências de Software
-
-### Zero Dependências Externas ✅
-
-O TupãSoft **não usa nenhuma dependência externa**:
-
-- ❌ Nenhum NPM package
-- ❌ Nenhum framework (React, Vue, Angular)
-- ❌ Nenhuma biblioteca (jQuery, Bootstrap)
-- ✅ Apenas HTML5, CSS3, JavaScript vanilla
-
-### Componentes Internos
-
-| Arquivo      | Tipo               | Licença      |
-| ------------ | ------------------ | ------------ |
-| `index.html` | HTML semântico     | Proprietária |
-| `style.css`  | CSS puro           | Proprietária |
-| `script.js`  | JavaScript vanilla | Proprietária |
-
----
-
 ## 🌐 Serviços Terceiros
 
-### 1. Google Analytics 4
-
-**Tipo:** Analytics / Tracking  
-**Licença:** Google Terms of Service  
-**URL:** https://analytics.google.com
-
-**Permissão para usar:**
-
-- ✅ Dentro de `index.html` (script tag)
-- ✅ Rastreia páginas visitadas
-- ✅ Dados anônimos
-
-**Seus direitos:**
-
-- ✅ Você pode desativar cookies
-- ✅ Você pode usar Google's privacy tools
-- ✅ Veja: https://policies.google.com/privacy
-
-### 2. WhatsApp / Meta
+### 1. WhatsApp / Meta
 
 **Tipo:** Messaging / CRM  
 **Licença:** Meta Platforms Terms  
@@ -149,7 +109,7 @@ O TupãSoft **não usa nenhuma dependência externa**:
 - ✅ Conversa privada com Meta
 - ✅ Veja: https://www.whatsapp.com/legal/
 
-### 3. Let's Encrypt (SSL Certificate)
+### 2. Let's Encrypt (SSL Certificate)
 
 **Tipo:** SSL/TLS Certificate  
 **Licença:** Mozilla Public License 2.0  
@@ -166,7 +126,7 @@ O TupãSoft **não usa nenhuma dependência externa**:
 - ✅ Gratuito e aberto (ISC License)
 - ✅ Renovação automática via Certbot
 
-### 4. Cloudflare CDN (Opcional)
+### 3. Cloudflare CDN (Opcional)
 
 **Tipo:** Content Delivery Network  
 **Licença:** Cloudflare Terms of Service  
@@ -182,49 +142,6 @@ O TupãSoft **não usa nenhuma dependência externa**:
 
 - ✅ Gratuito para sites estáticos
 - ✅ Veja: https://www.cloudflare.com/privacypolicy/
-
-### 5. GitHub Pages / Netlify / Vercel (Hosting)
-
-**Tipo:** Hosting / Deployment  
-**Licença:** Respectivos termos
-
-**Options:**
-
-#### GitHub Pages
-
-- **Licença:** GitHub Terms of Service
-- **URL:** https://pages.github.com/
-- **Gratuito:** Sim
-
-#### Netlify
-
-- **Licença:** Netlify Terms
-- **URL:** https://netlify.com/
-- **Gratuito:** Sim (até certos limites)
-
-#### Vercel
-
-- **Licença:** Vercel Terms
-- **URL:** https://vercel.com/
-- **Gratuito:** Sim (até certos limites)
-
-**Seu direito:** Escolher platform de hosting
-
-### 6. Nginx / Apache (Servidor Web)
-
-**Tipo:** Web Server  
-**Licença:** Apache License 2.0 / 2-Clause BSD  
-**URL:** https://nginx.org/ / https://apache.org/
-
-**Como usamos:**
-
-- ✅ Servidor web em produção
-- ✅ Configuração de segurança
-
-**Permissão:**
-
-- ✅ Open source, gratuito
-- ✅ Comercial permitido
 
 ---
 
@@ -409,38 +326,8 @@ Se mencionar TupãSoft, use:
 ```markdown
 TupãSoft — Marketplace de Software
 © 2026 TupãSoft. Todos os direitos reservados.
-https://tupansoft.com
-```
-
-```html
-<!-- HTML -->
-<p>&copy; 2026 TupãSoft — Todos os direitos reservados.</p>
-<a href="https://tupansoft.com">TupãSoft</a>
 ```
 
 ---
-
-## 📞 Questões Legais
-
-**Para questions legais:**
-
-⚖️ **Legal Team**  
-📧 legal@tupansoft.com.br  
-📞 (92) 9 9999-0000  
-🏢 Manaus, Amazonas — Brasil
-
----
-
-## 📜 Documentos Relacionados
-
-- [Política de Privacidade](./08-PRIVACY-LGPD.md)
-- [Política de Segurança](./07-SECURITY.md)
-- [Termos de Uso Site](#)
-- [EULA — Software End User License Agreement](#)
-
----
-
-**Última atualização:** 7 de Abril de 2026  
-**Versão:** 1.0.0 — Inicial
 
 ✅ **Conforme:** LGPD + Legislação Brasileira

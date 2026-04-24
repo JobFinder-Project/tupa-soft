@@ -129,7 +129,7 @@ A busca funciona com:
 ### Exemplo de Card
 
 ```
-┌─────────────────────────────┐
+┌───────────────────────────────┐
 │         🛒 SuperMarket Total  │
 │      Supermercado             │
 │      ★★★★★ 4.9 (213)          │
@@ -143,7 +143,7 @@ A busca funciona com:
 │  • Relatórios gerenciais      │
 │                               │
 │  [🛒 Carrinho] [💬 WhatsApp]  │
-└─────────────────────────────┘
+└───────────────────────────────┘
 ```
 
 ---
@@ -214,29 +214,6 @@ Total: R$ 1.096
 Aguardo contato!
 ```
 
-### Horário de Resposta
-
-📞 **Seg–Sex: 08h às 18h** (Horário de Manaus, UTC-4)
-
-Mensagens recebidas fora do horário são respondidas no próximo dia útil.
-
----
-
-## 📱 Usar no Mobile
-
-### Menu Hambúrguer
-
-1. Toque o ícone ☰ (topo direito)
-2. Acesse busca, categorias, produtos
-3. Toque novamente para fechar
-
-### Otimizações Mobile
-
-- ✅ Tela cheia — Sem barras desnecessárias
-- ✅ Toque otimizado — Botões grandes o suficiente
-- ✅ Scroll suave — Transições fluidas
-- ✅ Busca dedicada — Espaço amplo no menu
-
 ---
 
 ## ♿ Acessibilidade
@@ -295,25 +272,9 @@ Veja [FAQ Completo](./13-FAQ.md) para mais respostas.
 
 ## 📞 Precisa de Ajuda?
 
-**Suporte 24/7 (Seg–Sex 8h–18h)**
-
 📧 **Email:** support@tupansoft.com.br  
 📞 **Telefone:** (92) 9 9999-0000  
 💬 **WhatsApp:** [Falar conosco](https://wa.me/5592999990000)
-
-**Documentação**
-
-- 📚 [Guia Completo](./README.md)
-- 🤔 [Perguntas Frequentes](./13-FAQ.md)
-- 🔒 [Política de Privacidade](./08-PRIVACY-LGPD.md)
-
----
-
-## 📝 Feedback
-
-Sugestões para melhorar o TupãSoft?
-
-Envie seu feedback: feedback@tupansoft.com.br
 
 ---
 

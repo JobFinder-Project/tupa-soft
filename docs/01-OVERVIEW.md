@@ -1,14 +1,14 @@
 # 🌐 Visão Geral do Projeto
 
-**Versão:** 1.0.0  
-**Última atualização:** 7 de Abril de 2026  
-**Status:** Em Produção
+**Versão:** 2.1.0  
+**Última atualização:** 23 de Abril de 2026  
+**Status:** Em Desenvolvimento (Full-Stack)
 
 ---
 
 ## 📌 Sumário Executivo
 
-**TupãSoft** é uma plataforma digital de soluções de software, desenvolvida como um single-page application (SPA) moderno e responsivo. A empresa atua em três frentes: venda de templates próprios, revenda de softwares de parceiros e desenvolvimento de software personalizado sob especificação do cliente. O foco está em soluções para supermercados, controladoras fiscais, estoque, financeiro, RH e restaurantes.
+**TupãSoft** é uma plataforma digital de soluções de software em desenvolvimento, com arquitetura full-stack e catálogo web responsivo. A empresa atua em três frentes: venda de templates próprios, revenda de softwares de parceiros e desenvolvimento de software personalizado sob especificação do cliente. O foco está em soluções para supermercados, controladoras fiscais, estoque, financeiro, RH e restaurantes.
 
 O nome homenageia **Tupã**, deus do trovão na mitologia Tupi-Guarani, símbolizando força, poder e inovação nascidos no Amazonas.
 
@@ -18,8 +18,7 @@ O nome homenageia **Tupã**, deus do trovão na mitologia Tupi-Guarani, símboli
 | ------------------ | --------------------------------------------------------------- |
 | **Acessibilidade** | Catálogo de softwares com busca, filtros e detalhes intuitivos  |
 | **Conversão**      | Fluxo de compra simplificado com carrinho e integração WhatsApp |
-| **Flexibilidade**  | Atendimento em três modelos: próprio, revenda e sob demanda      |
-| **Regionalidade**  | Suporte especializado com time baseado em Manaus, AM            |
+| **Flexibilidade**  | Atendimento em três modelos: próprio, revenda e sob demanda     |
 | **Confiabilidade** | Sistema seguro, conforme com LGPD e boas práticas de mercado    |
 
 ---
@@ -30,41 +29,46 @@ O nome homenageia **Tupã**, deus do trovão na mitologia Tupi-Guarani, símboli
 
 #### Frontend
 
-- **HTML5** — Semântico, acessível (ARIA labels, roles)
-- **CSS3** — Puro (Grid, Custom Properties, animações)
-- **JavaScript (ES6+)** — Vanilla, sem frameworks
+- **React 19** — UI library moderna e reativa
+- **Vite** — Build tool rápido e otimizado
+- **CSS3** — Responsivo com Custom Properties
+- **JavaScript (ES6+)** — Hooks, composição funcional
 
-#### Backend (Não se aplica)
+#### Backend
 
-- Estático — Sem servidor necessário
+- **Node.js** — Runtime JavaScript servidor
+- **Express.js** — Framework HTTP minimalista
+- **Sequelize** — ORM para banco de dados
+- **PostgreSQL** — Banco de dados relacional
 
-#### Hospedagem
+#### Infraestrutura
 
-- GitHub Pages, Netlify, Vercel ou servidor estático próprio
-- CDN recomendado para distribuição global
+- **Docker & Docker Compose** — Containerização e orquestração
+- **GitHub Actions** — CI/CD planejado
+- **PostgreSQL 16** — Dados persistentes (categorias, produtos, inquéritos)
 
 #### Dependências Externas
 
-- **0 dependências NPM/JavaScript** — Totalmente vanilla
+- **npm packages** — Gerenciamento de dependências (frontend e backend)
 - **APIs externas:** WhatsApp Business API (opcional para automação)
 
 ### Arquitetura em Camadas
 
 ```
-┌─────────────────────────────────────────────────┐
-│           Camada de Apresentação                 │
-│  (HTML Semântico + CSS Responsivo + UX)         │
-└────────────────────┬────────────────────────────┘
-                     │
-┌────────────────────▼────────────────────────────┐
-│       Camada de Lógica (JavaScript)              │
-│  (Estado, Filtros, Carrinho, Modais)            │
-└────────────────────┬────────────────────────────┘
-                     │
-┌────────────────────▼────────────────────────────┐
-│      Camada de Dados (localStorage)              │
-│  (Persistência do Carrinho)                      │
-└─────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│               CLIENTE (Browser)                           │
+│  React Components + Vite Build + HTTP Requests           │
+└──────────────────┬───────────────────────────────────────┘
+                   │ HTTP/REST API
+┌──────────────────▼───────────────────────────────────────┐
+│        SERVIDOR (Node.js/Express)                        │
+│  Routes → Controllers → Services → Models                │
+└──────────────────┬───────────────────────────────────────┘
+                   │ SQL Queries
+┌──────────────────▼───────────────────────────────────────┐
+│  BANCO DE DADOS (PostgreSQL)                             │
+│  (Categorias, Produtos, Inquéritos, Features)            │
+└──────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -72,25 +76,58 @@ O nome homenageia **Tupã**, deus do trovão na mitologia Tupi-Guarani, símboli
 ## 📂 Estrutura do Projeto
 
 ```
-catalogo/
-├── index.html              # Página principal (HTML semântico)
-├── style.css              # Design system (CSS puro, variáveis)
-├── script.js              # Lógica da aplicação (JS vanilla)
-├── .gitignore             # Arquivos ignorados pelo Git
-├── README.md              # Documentação rápida
-├── docs/                  # Documentação completa
+tupa-soft/
+├── backend/                    # Node.js + Express
+│   ├── src/
+│   │   ├── config/            # Variáveis de ambiente
+│   │   ├── controllers/       # Lógica das rotas
+│   │   ├── services/          # Regras de negócio
+│   │   ├── models/            # Sequelize ORM
+│   │   ├── routes/            # Definição de endpoints
+│   │   ├── middlewares/       # Express middlewares
+│   │   ├── dtos/              # Data Transfer Objects
+│   │   ├── utils/             # Utilitários
+│   │   ├── db/                # Configuração banco
+│   │   ├── app.js             # App Express
+│   │   └── server.js          # Inicialização
+│   ├── db/sql/
+│   │   └── init.sql           # Schema e seeds
+│   ├── Dockerfile
+│   ├── package.json
+│   └── README.md
+├── frontend/                   # React + Vite
+│   ├── src/
+│   │   ├── components/        # React components
+│   │   │   ├── catalog/       # Componentes catálogo
+│   │   │   ├── layout/        # Layout principal
+│   │   │   ├── modals/        # Modais
+│   │   │   └── ui/            # Componentes genéricos
+│   │   ├── pages/             # Páginas principais
+│   │   ├── services/          # API calls (HTTP)
+│   │   ├── hooks/             # React hooks customizados
+│   │   ├── utils/             # Utilitários
+│   │   ├── styles/            # CSS modular
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   ├── public/                # Assets estáticos
+│   ├── Dockerfile
+│   ├── vite.config.js         # Build config
+│   ├── package.json
+│   └── README.md
+├── docs/                       # Documentação completa
 │   ├── 01-OVERVIEW.md
-│   ├── 02-INSTALLATION.md
 │   ├── 03-USER-GUIDE.md
 │   ├── 04-ARCHITECTURE.md
 │   ├── 05-DEVELOPER-GUIDE.md
-│   ├── 06-CONTRIBUTING.md
-│   ├── 07-SECURITY.md
-│   ├── 08-PRIVACY-LGPD.md
-│   ├── 09-LICENSES.md
 │   ├── 10-DEPLOYMENT.md
+│   ├── 07-SECURITY.md
 │   └── ... (mais documentação)
-└── assets/                # (Futuro) Imagens, ícones, logos
+├── docker-compose.yml         # Orquestração de serviços
+├── .github/
+│   └── workflows/             # GitHub Actions CI/CD (planejado)
+├── .gitignore
+└── README.md                  # Documentação principal
 ```
 
 ---
@@ -147,11 +184,11 @@ catalogo/
 
 **Exemplos:**
 
-| Nome              | Categoria    | Preço  | Modelo  | Rating |
-| ----------------- | ------------ | ------ | ------- | ------ |
-| SuperMarket Total | Supermercado | R$ 799 | Mês     | 4.9⭐  |
-| CalcPro Fiscal    | Calculadoras | R$ 297 | Licença | 4.8⭐  |
-| GestorEstoque Pro | Estoque      | R$ 497 | Mês     | 4.7⭐  |
+| Nome                | Categoria    | Preço base | Modelo | Rating |
+| ------------------- | ------------ | ---------- | ------ | ------ |
+| SuperMarket Total   | Supermercado | R$ 349,90  | Mês    | 4.8⭐  |
+| Calc Price Plus     | Calculadoras | R$ 79,90   | Mês    | 4.6⭐  |
+| GestorEstoque Pro   | Estoque      | R$ 159,90  | Mês    | 4.7⭐  |
 
 ---
 
@@ -195,82 +232,12 @@ catalogo/
 - ✅ Modal de detalhes com features e rating
 - ✅ Integração WhatsApp para contato
 - ✅ Operação comercial híbrida (produto próprio, revenda e projeto sob demanda)
-- ✅ Animações suaves (IntersectionObserver)
-- ✅ Responsivo (mobile-first)
-- ✅ Menu hambúrguer no mobile
-- ✅ Acessibilidade (WCAG 2.1 AA)
 
 ### Roadmap Futuro
 
 - 🔜 Sistema de pagamento integrado (Stripe, Mercado Pago)
 - 🔜 Autenticação de usuários (OAuth, login)
-- 🔜 Sistema de reviews e ratings
-- 🔜 Blog e conteúdo educativo
-- 🔜 API REST para integração
 - 🔜 Dashboard de vendas
-- 🔜 Multi-idioma (português, inglês, espanhol)
-- 🔜 Dark mode
-
----
-
-## 📈 Métricas e KPIs
-
-### Métricas de Negócio
-
-| Métrica                 | Target        | Atual |
-| ----------------------- | ------------- | ----- |
-| Conversão para WhatsApp | 5-8%          | TBD   |
-| Sessões únicas/mês      | 2.000+        | TBD   |
-| Tempo médio no site     | 2-3 min       | TBD   |
-| Taxa de rejeição        | <40%          | TBD   |
-| Busca realizada         | >50% usuários | TBD   |
-
-### Métricas Técnicas
-
-| Métrica                    | Target | Atual |
-| -------------------------- | ------ | ----- |
-| Lighthouse Performance     | 90+    | 95    |
-| Lighthouse Acessibilidade  | 90+    | 98    |
-| Core Web Vitals            | Green  | Green |
-| Tempo de carregamento (3G) | <3s    | 1.2s  |
-| Tamanho total (gzipped)    | <200KB | 45KB  |
-
----
-
-## 🔐 Segurança
-
-Veja [Segurança](./07-SECURITY.md) para política completa.
-
-**Resumo:**
-
-- ✅ Sem armazenamento de dados sensíveis no cliente
-- ✅ HTTPS obrigatório em produção
-- ✅ Proteção contra XSS (sanitização)
-- ✅ Proteção contra CSRF
-- ✅ Rate limiting no WhatsApp API (se implementado)
-
----
-
-## 📋 Conformidade
-
-- ✅ **LGPD** — Lei Geral de Proteção de Dados Pessoais (Brasil)
-- ✅ **GDPR** — General Data Protection Regulation (compatível)
-- ✅ **WCAG 2.1 AA** — Acessibilidade web
-- ✅ **Licença Proprietária** — Todos os direitos reservados
-
-Veja [LGPD](./08-PRIVACY-LGPD.md) para detalhes completos.
-
----
-
-## 📞 Contato
-
-**Suporte**  
-📧 support@tupansoft.com.br  
-📞 (92) 9 9999-0000  
-💬 [WhatsApp](https://wa.me/5592999990000)
-
-**Horário de Funcionamento**  
-Segunda a Sexta: 08:00 - 18:00 (Horário de Manaus, UTC-4)
 
 ---
 

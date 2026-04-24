@@ -1,7 +1,7 @@
 # 🔒 Privacidade e LGPD
 
-**Versão:** 1.0.0  
-**Última atualização:** 7 de Abril de 2026  
+**Versão:** 1.1.0  
+**Última atualização:** 23 de Abril de 2026  
 **Jurisdição:** Brasil (LGPD) + GDPR-ready
 
 ---
@@ -114,96 +114,6 @@ Coletamos dados apenas com base em:
 | **Interesse Legítimo** | Melhorar UX, segurança             | ✅ Sim          |
 | **Obrigação Judicial** | Ordem de tribunal                  | ✅ Se aplicável |
 | **Órgão Público**      | INSS, receita, etc                 | ❌ Não          |
-
----
-
-## 🍪 Cookies e Tracking
-
-### Cookies Utilizados
-
-#### Google Analytics (Consentimento Obrigatório)
-
-```javascript
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXX');
-</script>
-```
-
-**Cookies Criados:**
-
-- `_ga` — ID único do visitante (2 anos)
-- `_gid` — ID da sessão (24h)
-- `_gat` — Throttling (1 minuto)
-
-**O quê rastreia:**
-
-- Páginas visitadas
-- Tempo gasto
-- Cliques em botões
-- Conversões (compra)
-
-**Sua privacidade:**
-
-- ✅ IP é anonimizado
-- ✅ Você pode desativar em settings da conta Google
-- ✅ Veja: https://policies.google.com/privacy
-
-#### localStorage (Carrinho Local)
-
-```javascript
-// Guardar carrinho
-localStorage.setItem("tupansoft_cart", JSON.stringify(cart));
-```
-
-**O quê armazena:**
-
-- Produtos no carrinho
-- Preferências de filtro
-
-**Retenção:**
-
-- Até você limpar cache do navegador
-- Ou excluir localStorage manualmente
-
-**Privacidade:**
-
-- ✅ Apenas no seu navegador (não enviado para servidor)
-- ✅ Sem sincronização entre dispositivos
-
-### Consentimento de Cookies
-
-Na primeira visita, você vê banner:
-
-```
-🍪 Usamos cookies para melhorar sua experiência.
-
-[Aceitar Tudo] [Apenas Necessários] [Configurar]
-```
-
-**Opções:**
-
-1. **Aceitar Tudo** → Google Analytics ativo
-2. **Apenas Necessários** → Só localStorage precisa
-3. **Configurar** → Escolha cada cookie
-
-### Gerenciar Cookies
-
-**Desativar cookies no navegador:**
-
-- Chrome: Settings → Privacy → Cookies
-- Firefox: Preferences → Privacy
-- Safari: Preferences → Privacy
-
-**Limpar cookies:**
-
-- Chrome: Ctrl+Shift+Delete
-- Firefox: Ctrl+Shift+Delete
-- Safari: Develop → Empty Caches
 
 ---
 
@@ -344,38 +254,6 @@ Caso haja vazamento:
 
 ---
 
-## 🌐 Transferência Internacional
-
-### Brasil → Exterior
-
-Dados podem ser transferidos para:
-
-- 🇺🇸 **USA** — Google (Analytics, reCAPTCHA)
-- 🇮🇷 **Irlanda** — Meta (WhatsApp)
-- 🇪🇺 **Europa** — Cloudflare CDN
-
-### Proteção
-
-- ✅ Adequação LGPD (Art. 33)
-- ✅ Cláusulas Contratuais Tipos (CCT)
-- ✅ Políticas de privacidade compatíveis
-
----
-
-## 👶 Privacidade de Menores
-
-### Menores de Idade
-
-O TupãSoft é para **usuários 18+ ou com consentimento responsável**.
-
-**Se menor de 18:**
-
-- ⚠️ Responsável legal deve autorizar coleta
-- ⚠️ Nenhum dado será coletado sem consentimento
-- ⚠️ Contate: privacy@tupansoft.com.br
-
----
-
 ## 📧 Comunicações Marketing
 
 ### Newsletters / Emails
@@ -440,43 +318,5 @@ Se você está na Europa:
 - ✅ Direito à portabilidade (Art. 20)
 
 ---
-
-## 📞 Contato — Data Protection Officer
-
-**Dúvidas sobre privacidade?**
-
-🛡️ **Data Protection Officer (DPO)**  
-📧 dpo@tupansoft.com.br  
-📧 privacy@tupansoft.com.br  
-📞 (92) 9 9999-0000  
-📋 [Solicitar direitos](#)
-
-**ANPD — Autoridade Nacional de Proteção de Dados**  
-🌐 https://www.gov.br/cidadania/pt-br/acesso-a-informacao/lgpd  
-📧 ouvidoria@anpd.gov.br
-
----
-
-## 📋 Seo Interna
-
-- Dados em cache/localStorage: ✅ Privado
-- Transmissão: ✅ Encriptada
-- Acesso: ✅ Restrito
-- Retenção: ✅ Limitada
-- Direitos: ✅ Garantidos
-
----
-
-## 📜 Histórico de Mudanças
-
-| Data       | Versão | Mudança        |
-| ---------- | ------ | -------------- |
-| 7 abr 2026 | 1.0    | Versão inicial |
-| -          | -      | -              |
-
----
-
-**Última atualização:** 7 de Abril de 2026  
-**Próxima revisão:** 7 de Julho de 2026
 
 ✅ **Conforme:** LGPD (Lei 13.709/2018) + GDPR + CCPA
