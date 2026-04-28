@@ -170,6 +170,66 @@ Custos Fixos:         -R$ 4.650
 
 ---
 
+## 🤝 Parcerias-Chave
+
+A TupãSoft opera em um modelo de ecossistema colaborativo. Nossas parcerias estratégicas são:
+
+### 1. Fornecedores de Produtos (Revenda)
+
+**Objetivo:** Ampliar catálogo com softwares de terceiros
+
+**Modelo:**
+- Fornecedor fornece software/solução
+- TupãSoft disponibiliza no catálogo com marca visível
+- Comissão: 20-30% por venda recorrente
+- Suporte: TupãSoft faz 1º nível; fornecedor faz 2º nível (ambos 24h)
+
+**Exemplos:** Developers de ERP, PDV, Contabilidade, RH
+
+### 2. Serviços de Computação em Nuvem e Infraestrutura
+
+**Objetivo:** Garantir disponibilidade e performance
+
+**Parceiros Potenciais:**
+- AWS, Azure, Google Cloud (hospedagem)
+- Cloudflare (CDN e segurança)
+- Upland, PagerDuty (monitoramento)
+
+**Modelo:** Contrato de SLA e suporte técnico 24/7
+
+### 3. Ferramentas de Pagamento
+
+**Objetivo:** Oferecer múltiplas formas de recebimento
+
+**Parceiros:**
+- Stripe (gateway internacional)
+- Mercado Pago (local, PIX)
+- PagSeguro (alternativa)
+
+**Modelo:** 2.9% + R$ 0.30 por transação (taxa média de mercado)
+
+### 4. Ferramentas de Comunicação
+
+**Objetivo:** Suportar múltiplos canais de contato
+
+**Parceiros:**
+- SendGrid, Mailchimp (Email)
+- Twilio (SMS/WhatsApp API)
+- Zendesk (Suporte/Tickets)
+
+**Modelo:** Contrato mensal com SLA garantido
+
+### Impacto Financeiro
+
+| Parceria | Investimento | Benefício | ROI |
+|----------|-------------|----------|-----|
+| **Fornecedores** | R$ 0 | +30-50 produtos/ano | Infinito |
+| **Cloud/Infra** | R$ 500/mês | 99.9% uptime | 400%+ |
+| **Pagamento** | 2.9% taxa | Faturamento online | 50%+ |
+| **Comunicação** | R$ 500/mês | Suporte escalável | 300%+ |
+
+---
+
 ## 📈 Projeção Financeira (12 meses)
 
 ### Cenário Conservador (Volume Baixo)
@@ -219,14 +279,65 @@ Custos Fixos:         -R$ 4.650
 
 ### KPIs Secundários
 
-| KPI                     | Target        |
-| ----------------------- | ------------- |
-| **Busca utilizada**     | >60% usuários |
-| **Carrinho abandonado** | <40%          |
-| **Taxa Click WhatsApp** | >80% add cart |
-| **Resposta Suporte**    | <24h          |
-| **Uptime**              | 99.5%         |
-| **Page Load**           | <3s           |
+| KPI                           | Target        |
+| ----------------------------- | ------------- |
+| **Busca utilizada**           | >60% usuários |
+| **Carrinho abandonado**       | <40%          |
+| **Taxa Preenchimento Formulário** | >70% add cart |
+| **Resposta Suporte (Email)**  | <24h          |
+| **Uptime**                    | 99.5%         |
+| **Page Load**                 | <3s           |
+
+---
+
+## 💬 Relacionamento com Clientes
+
+### Fluxo de Engajamento (Novo Modelo)
+
+#### Fase 1: Descoberta
+- Usuário navega catálogo e vê produtos com origem (próprio ou empresa de terceiro)
+- Adiciona itens ao carrinho
+
+#### Fase 2: Contato Estruturado
+- Preenche formulário com:
+  - Dados pessoais (nome, email, empresa, telefone)
+  - Produtos de interesse
+  - Descrição da necessidade
+- Recebe **comprovante por email** com número de protocolo
+- Email automático notifica equipe TupãSoft
+
+#### Fase 3: Acompanhamento em Tempo Real
+- Cliente acessa **Dashboard → Aba Contratos**
+- Visualiza progresso em **7 etapas**:
+  1. Formulário recebido
+  2. Análise da demanda
+  3. Proposta enviada
+  4. Negociação em curso
+  5. Contrato assinado
+  6. Acesso liberado
+  7. Suporte ativo
+- Histórico de emails e pagamentos
+
+#### Fase 4: Comunicação Estratégica
+- **Principal:** Email (corpo principal, profissional, <24h resposta)
+- **Complementar:** WhatsApp (apenas negociação rápida ou emergências)
+- **Diferenciação:** Cada produto exibe empresa responsável (TupãSoft ou parceiro)
+
+#### Fase 5: Suporte Diferenciado
+- **Produtos TupãSoft:** Suporte direto pela equipe, 24h
+- **Produtos de Terceiros:** Contato com fornecedor, 24h
+- Ambos com tempo de resposta garantido
+
+### Benefícios da Nova Abordagem
+
+| Benefício | Impacto |
+|-----------|--------|
+| **Transparência** | Cliente vê exatamente em qual etapa está |
+| **Profissionalismo** | Processo documentado e estruturado |
+| **Rastreabilidade** | Histórico completo de comunicação |
+| **Escalabilidade** | Sistema pronto para crescimento de volume |
+| **Redução de Churn** | Cliente informado = Cliente mais engajado |
+| **Email como primário** | Reduz falsas comunicações e malentendidos |
 
 ---
 
@@ -246,16 +357,22 @@ Alcance: 200+ visitas/mês por artigo
 ROI: Infinito (sem custo)
 ```
 
-#### 2. Redes Sociais
+#### 2. Redes Sociais — Canal Principal de Divulgação
 
 **Investimento:** R$ 500/mês  
-**Rede:** Instagram, Facebook, LinkedIn  
-**Ação:** Posts, Stories, Reels
+**Redes:** Instagram, Facebook, LinkedIn  
+**Ação:** Posts, Stories, Reels, conteúdo educativo
 
 ```
-Conteúdo: Dicas de gestão, case studies
-Frequência: 3x por semana
+Conteúdo Estratégico:
+  - Dicas de produtividade e gestão empresarial
+  - Case studies de sucesso com produtos
+  - Destaques de novos produtos no catálogo
+  - Webinars e eventos
+
+Frequência: 3-4 posts por semana
 Alcance: 5.000+ impressões/mês
+CTA: "Acesse nosso catálogo" com link para plataforma
 ROI: 200-300%
 ```
 

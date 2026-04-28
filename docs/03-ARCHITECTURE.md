@@ -73,20 +73,60 @@ Frontend renderiza cards atualizados
 
 ---
 
-## 🔄 Fluxo de Dados (Inquérito)
+## 🔄 Fluxo de Dados (Inquérito / Formulário de Contato)
 
 ```
-Usuário envia formulário
+Usuário preenche formulário no carrinho
+  ├─ Dados pessoais (nome, email, empresa, telefone)
+  ├─ Produtos selecionados
+  └─ Descrição da necessidade
         ↓
 Frontend chama POST /api/inquiries
         ↓
-Backend valida payload
+Backend valida payload (DTO)
         ↓
-Service persiste no banco
+Service persiste no banco com status = "recebido"
         ↓
-API retorna confirmação
+Backend envia email automático ao cliente
+  ├─ Comprovante de pedido
+  ├─ Número de protocolo
+  └─ Link para acompanhar progresso
         ↓
-Frontend exibe feedback ao usuário
+Backend notifica equipe TupãSoft (email interno)
+        ↓
+API retorna confirmação ao frontend
+        ↓
+Frontend exibe feedback + acesso ao dashboard
+```
+
+## 🔄 Fluxo de Dados (Progresso de Pedido)
+
+```
+Equipe TupãSoft recebe inquérito
+        ↓
+Altera status: "recebido" → "análise"
+  └─ Sistema envia notificação por email ao cliente
+        ↓
+Após análise: "análise" → "proposta enviada"
+  └─ Email com detalhes da proposta
+        ↓
+Negociação (email/WhatsApp): status = "negociação"
+  └─ Email/WhatsApp com propostas alternativas
+        ↓
+Acordo alcançado: "negociação" → "contrato assinado"
+  └─ Email com contrato para assinatura
+        ↓
+Contrato assinado: "contrato assinado" → "acesso liberado"
+  └─ Email com credenciais de acesso
+        ↓
+Cliente tem acesso: "acesso liberado" → "suporte ativo"
+  └─ Suporte por email (até 24h)
+        ↓
+Cliente visualiza todo o histórico no Dashboard
+  ├─ Aba de Contratos com status atual
+  ├─ Histórico de emails
+  ├─ Histórico de pagamentos
+  └─ Data de próxima fatura (se aplicável)
 ```
 
 ---

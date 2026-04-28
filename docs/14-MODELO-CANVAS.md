@@ -30,17 +30,21 @@ Consolidar, em um único documento, o **Business Model Canvas** do projeto Tupã
 
 ### 3. Canais
 
-- Plataforma web (catálogo e páginas de produto).
-- WhatsApp como canal principal de conversão e relacionamento.
-- Redes sociais (Instagram, Facebook e LinkedIn).
+- Plataforma web (catálogo, detalhes de produto e formulário de contato).
+- Redes sociais (Instagram, Facebook e LinkedIn) como principal divulgação.
+- Email para comunicação de vendas e suporte.
+- WhatsApp como backup (má comunicação, negociação rápida ou emergências).
 - Indicação de parceiros e networking regional.
 
 ### 4. Relacionamento com Clientes
 
-- Atendimento consultivo no pré-venda.
-- Suporte ativo no onboarding (ativação inicial).
-- Pós-venda com acompanhamento, retenção e oportunidades de manutenção.
-- Comunicação contínua por WhatsApp e e-mail.
+- **Pré-venda:** Formulário estruturado (informações pessoais + produto desejado).
+- **Confirmação:** Comprovante de pedido enviado por email automaticamente com número de protocolo.
+- **Acompanhamento:** Dashboard com aba de contratos mostrando progresso do pedido (7 etapas).
+- **Etapas:** Recebimento → Análise → Proposta → Negociação → Contrato → Acesso → Suporte Ativo.
+- **Comunicação:** Email primário (24h para todos); WhatsApp como backup ou emergências.
+- **Suporte:** Diferenciado por produto (TupãSoft: 24h | Terceiros: 24h).
+- **Pós-venda:** Acompanhamento, retenção e oportunidades de manutenção com histórico de pagamentos.
 
 ### 5. Fontes de Receita
 
@@ -65,9 +69,11 @@ Consolidar, em um único documento, o **Business Model Canvas** do projeto Tupã
 
 ### 8. Parcerias-Chave
 
-- Fornecedores de software e parceiros de revenda.
-- Provedores de infraestrutura e serviços digitais.
-- Ferramentas de pagamento, comunicação e automação.
+- **Fornecedores de Produtos:** Empresas que desejam revender softwares através da TupãSoft (20-30% comissão).
+- **Computação em Nuvem e Infraestrutura:** AWS, Azure, Google Cloud, Cloudflare (hospedagem e CDN).
+- **Ferramentas de Pagamento:** Stripe, Mercado Pago, PagSeguro (gateway de pagamento).
+- **Ferramentas de Comunicação:** SendGrid, Mailchimp, Twilio, Zendesk (email, SMS/WhatsApp, suporte).
+- **Indicações e Networking Regional:** Contadores, consultores, agências (comissão 10-15%).
 
 ### 9. Estrutura de Custos
 

@@ -14,12 +14,14 @@ O nome homenageia **Tupã**, deus do trovão na mitologia Tupi-Guarani, símboli
 
 ### 🎯 Objetivos Principais
 
-| Objetivo           | Descrição                                                       |
-| ------------------ | --------------------------------------------------------------- |
-| **Acessibilidade** | Catálogo de softwares com busca, filtros e detalhes intuitivos  |
-| **Conversão**      | Fluxo de compra simplificado com carrinho e integração WhatsApp |
-| **Flexibilidade**  | Atendimento em três modelos: próprio, revenda e sob demanda     |
-| **Confiabilidade** | Sistema seguro, conforme com LGPD e boas práticas de mercado    |
+| Objetivo           | Descrição                                                                   |
+| ------------------ | --------------------------------------------------------------------------- |
+| **Acessibilidade** | Catálogo de softwares com busca, filtros e detalhes intuitivos              |
+| **Conversão**      | Fluxo de compra com formulário estruturado, comprovante por email e WhatsApp |
+| **Rastreamento**   | Dashboard com aba de contratos mostrando progresso de aquisição e pagamentos |
+| **Suporte**        | Atendimento diferenciado: TupãSoft 24h / Terceiros 24h                      |
+| **Flexibilidade**  | Atendimento em três modelos: próprio, revenda e sob demanda                 |
+| **Confiabilidade** | Sistema seguro, conforme com LGPD e boas práticas de mercado                |
 
 ---
 
@@ -206,17 +208,39 @@ tupa-soft/
    └─ Ordenação (preço, rating)
    ↓
 3. Clica em produto → Modal de detalhes
-   ├─ Vê features, rating, descrição
+   ├─ Vê features, rating, descrição e empresa (se terceiro)
    ├─ Opção 1: Adiciona ao carrinho
    ├─ Opção 2: Fala no WhatsApp direto
    └─ Opção 3: Solicita versão personalizada
    ↓
 4. Carrinho (localStorage)
    ├─ Ver itens adicionados
-   └─ Checkout via WhatsApp
+   └─ Preencher formulário de contato
    ↓
-5. WhatsApp é aberto com mensagem pré-formatada
-   └─ Equipe de vendas segue o contato
+5. Formulário de Contato
+   ├─ Dados pessoais (nome, email, empresa, telefone)
+   ├─ Produtos selecionados
+   ├─ Descrição da necessidade
+   └─ Submeter
+   ↓
+6. Confirmação
+   ├─ Comprovante de pedido enviado por email
+   ├─ Cliente recebe número de protocolo
+   └─ Acesso ao dashboard de contratos para acompanhamento
+   ↓
+7. Equipe TupãSoft
+   ├─ Recebe notificação
+   ├─ Analisa requisição
+   └─ Responde em até 24h (email ou WhatsApp se necessário)
+   ↓
+8. Progresso do Pedido
+   ├─ Etapa 1: Formulário recebido
+   ├─ Etapa 2: Análise
+   ├─ Etapa 3: Proposta enviada
+   ├─ Etapa 4: Negociação (email/WhatsApp)
+   ├─ Etapa 5: Contrato assinado
+   ├─ Etapa 6: Acesso liberado
+   └─ Etapa 7: Suporte ativo
 ```
 
 ---
@@ -229,8 +253,13 @@ tupa-soft/
 - ✅ Busca com debounce e normalização de acentos
 - ✅ Filtros por categoria, preço e ordenação
 - ✅ Carrinho com persistência via localStorage
-- ✅ Modal de detalhes com features e rating
-- ✅ Integração WhatsApp para contato
+- ✅ Modal de detalhes com features, rating e empresa (se terceiro)
+- ✅ Formulário de contato estruturado (dados pessoais + produto)
+- ✅ Comprovante de pedido enviado por email automaticamente
+- ✅ Dashboard com aba de contratos (progresso + histórico de pagamentos)
+- ✅ Rastreamento de etapas: recebimento → análise → proposta → negociação → contrato → acesso → suporte
+- ✅ Integração WhatsApp (backup para má comunicação ou negociação rápida)
+- ✅ Suporte por email (24h), WhatsApp apenas em emergências
 - ✅ Operação comercial híbrida (produto próprio, revenda e projeto sob demanda)
 
 ### Roadmap Futuro
