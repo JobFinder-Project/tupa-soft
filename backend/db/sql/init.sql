@@ -5,6 +5,18 @@ DROP TABLE IF EXISTS product_reviews;
 DROP TABLE IF EXISTS product_features;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(180) NOT NULL UNIQUE,
+  phone VARCHAR(30),
+  password_hash VARCHAR(180),
+  provider VARCHAR(20) NOT NULL DEFAULT 'local',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
 
 CREATE TABLE categories (
   id SERIAL PRIMARY KEY,
