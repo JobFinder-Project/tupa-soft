@@ -5,7 +5,7 @@ import {
   LightningBoltIcon,
   MagnifyingGlassIcon,
 } from '@radix-ui/react-icons'
-import { IconButton, TextField } from '@radix-ui/themes'
+import { DropdownMenu, IconButton, TextField } from '@radix-ui/themes'
 import { SoftIcon } from '../ui/SoftIcon'
 import { getCategoryIcon, PAGE_ICON_COMPONENTS } from '../../utils/catalogIcons'
 
@@ -20,7 +20,24 @@ export function Navbar({
   logoHref = '#',
   showSearch = true,
   showNav = true,
+  showAuth = true,
+  user = null,
+  onNavigateLogin = () => {},
+  onNavigateRegister = () => {},
+  onNavigateProfile = () => {},
+  onOpenOrders = () => {},
+  onOpenFavorites = () => {},
+  onLogout = () => {},
 }) {
+  const displayName = user?.name || user?.email || ''
+  const initials = displayName
+    .split(' ')
+    .map((part) => part.trim()[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join('')
+    .toUpperCase()
+
   return (
     <>
       <header id="navbar">
@@ -76,6 +93,41 @@ export function Navbar({
             </span>
           </IconButton>
 
+          {showAuth && (
+            <div className="navbar-auth">
+              {user ? (
+                <DropdownMenu.Root>
+                  <DropdownMenu.Trigger asChild>
+                    <button type="button" className="user-chip" aria-label="Abrir menu da conta">
+                      <span className="user-avatar" aria-hidden="true">
+                        {initials || 'US'}
+                      </span>
+                      <span className="user-name">{displayName}</span>
+                    </button>
+                  </DropdownMenu.Trigger>
+                  <DropdownMenu.Content align="end" className="user-menu">
+                    <DropdownMenu.Item onSelect={onNavigateProfile}>Perfil</DropdownMenu.Item>
+                    <DropdownMenu.Item onSelect={onOpenOrders}>Meus pedidos</DropdownMenu.Item>
+                    <DropdownMenu.Item onSelect={onOpenFavorites}>Favoritos</DropdownMenu.Item>
+                    <DropdownMenu.Separator />
+                    <DropdownMenu.Item color="red" onSelect={onLogout}>
+                      Sair
+                    </DropdownMenu.Item>
+                  </DropdownMenu.Content>
+                </DropdownMenu.Root>
+              ) : (
+                <div className="auth-links">
+                  <button type="button" className="auth-link" onClick={onNavigateLogin}>
+                    Sign in
+                  </button>
+                  <button type="button" className="btn btn-primary btn-sm" onClick={onNavigateRegister}>
+                    Register
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
           {showNav && (
             <IconButton
               type="button"
@@ -117,6 +169,35 @@ export function Navbar({
           <a href="#cta-banner" className="mobile-link" onClick={onCloseMobile}>
             <SoftIcon icon={ChatBubbleIcon} size="sm" /> Contato
           </a>
+          {showAuth && (
+            <div className="mobile-auth">
+              {user ? (
+                <>
+                  <button type="button" className="mobile-link" onClick={onNavigateProfile}>
+                    <SoftIcon icon={PAGE_ICON_COMPONENTS.user} size="sm" /> Perfil
+                  </button>
+                  <button type="button" className="mobile-link" onClick={onOpenOrders}>
+                    <SoftIcon icon={PAGE_ICON_COMPONENTS.stepPlan} size="sm" /> Meus pedidos
+                  </button>
+                  <button type="button" className="mobile-link" onClick={onOpenFavorites}>
+                    <SoftIcon icon={ChatBubbleIcon} size="sm" /> Favoritos
+                  </button>
+                  <button type="button" className="mobile-link mobile-link-danger" onClick={onLogout}>
+                    Sair
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button type="button" className="mobile-link" onClick={onNavigateLogin}>
+                    Sign in
+                  </button>
+                  <button type="button" className="mobile-link" onClick={onNavigateRegister}>
+                    Register
+                  </button>
+                </>
+              )}
+            </div>
+          )}
         </div>
       )}
     </>

@@ -31,4 +31,5 @@ export const PAGE_ICON_COMPONENTS = {
   stepSearch: ReaderIcon,
   stepPlan: BarChartIcon,
   stepRocket: RocketIcon,
+  user: AvatarIcon,
 }

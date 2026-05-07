@@ -10,6 +10,7 @@ import { getProductDetails, getProductReviews } from '../services/catalogService
 import { formatPrice, stars } from '../utils/formatters'
 import { getCategoryIcon } from '../utils/catalogIcons'
 import { openWhatsApp } from '../utils/whatsapp'
+import { useAuth } from '../contexts/AuthContext'
 
 const REVIEWS_PER_PAGE = 8
 
@@ -32,8 +33,17 @@ function isDirectVideo(url) {
   return /\.(mp4|webm|ogg)(\?|#|$)/i.test(url)
 }
 
-export function ProductDetailsPage({ productId, onNavigateHome = () => {}, onNavigateCatalog = () => {} }) {
-  const isLoggedIn = false
+export function ProductDetailsPage({
+  productId,
+  onNavigateHome = () => {},
+  onNavigateCatalog = () => {},
+  onNavigateLogin = () => {},
+  onNavigateRegister = () => {},
+  onNavigateProfile = () => {},
+  onRequireAuth = () => {},
+}) {
+  const { user, logout } = useAuth()
+  const isLoggedIn = Boolean(user)
   const [product, setProduct] = useState(null)
   const [status, setStatus] = useState('loading')
   const [reviewsState, setReviewsState] = useState({ items: [], total: 0, limit: REVIEWS_PER_PAGE, offset: 0 })
@@ -153,6 +163,33 @@ export function ProductDetailsPage({ productId, onNavigateHome = () => {}, onNav
     setCartModalOpen(false)
   }
 
+  function handleBuyNow() {
+    if (!product) {
+      return
+    }
+
+    if (!isLoggedIn) {
+      onRequireAuth()
+      return
+    }
+
+    const message = `Ola, TupãSoft! Quero comprar agora: ${product.name} por ${formatPrice(product.price)}/${product.priceModel}.`
+    openWhatsApp(message)
+  }
+
+  function handleOpenOrders() {
+    pushToast('Meus pedidos estara disponivel em breve.', 'error')
+  }
+
+  function handleOpenFavorites() {
+    pushToast('Favoritos estara disponivel em breve.', 'error')
+  }
+
+  function handleLogout() {
+    logout()
+    pushToast('Sessao encerrada com sucesso.')
+  }
+
   function handleSubmitReview(event) {
     event.preventDefault()
 
@@ -192,6 +229,13 @@ export function ProductDetailsPage({ productId, onNavigateHome = () => {}, onNav
         logoHref="/"
         showSearch={false}
         showNav={false}
+        user={user}
+        onNavigateLogin={onNavigateLogin}
+        onNavigateRegister={onNavigateRegister}
+        onNavigateProfile={onNavigateProfile}
+        onOpenOrders={handleOpenOrders}
+        onOpenFavorites={handleOpenFavorites}
+        onLogout={handleLogout}
       />
 
       <main className="product-page">
@@ -253,8 +297,7 @@ export function ProductDetailsPage({ productId, onNavigateHome = () => {}, onNav
                       type="button"
                       variant="solid"
                       className="btn btn-accent"
-                      disabled
-                      aria-disabled="true"
+                      onClick={handleBuyNow}
                     >
                       Comprar agora
                     </Button>

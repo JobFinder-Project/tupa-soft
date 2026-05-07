@@ -25,8 +25,14 @@ import { formatPrice } from '../utils/formatters'
 import { openWhatsApp } from '../utils/whatsapp'
 import { SoftIcon } from '../components/ui/SoftIcon'
 import { getCategoryIcon, PAGE_ICON_COMPONENTS } from '../utils/catalogIcons'
+import { useAuth } from '../contexts/AuthContext'
 
-export function HomePage({ onViewProduct = () => {} }) {
+export function HomePage({
+  onViewProduct = () => {},
+  onNavigateLogin = () => {},
+  onNavigateRegister = () => {},
+  onNavigateProfile = () => {},
+}) {
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
   const [testimonials, setTestimonials] = useState([])
@@ -35,6 +41,8 @@ export function HomePage({ onViewProduct = () => {} }) {
   const [cartModalOpen, setCartModalOpen] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [toasts, setToasts] = useState([])
+
+  const { user, logout } = useAuth()
 
   const { items: cartItems, total: cartTotal, addToCart, removeFromCart } = useCart()
 
@@ -129,6 +137,19 @@ export function HomePage({ onViewProduct = () => {} }) {
     setCartModalOpen(false)
   }
 
+  function handleOpenOrders() {
+    pushToast('Meus pedidos estara disponivel em breve.', 'error')
+  }
+
+  function handleOpenFavorites() {
+    pushToast('Favoritos estara disponivel em breve.', 'error')
+  }
+
+  function handleLogout() {
+    logout()
+    pushToast('Sessao encerrada com sucesso.')
+  }
+
   const inCartIds = useMemo(() => new Set(cartItems.map((item) => item.id)), [cartItems])
 
   return (
@@ -141,6 +162,13 @@ export function HomePage({ onViewProduct = () => {} }) {
         mobileOpen={mobileOpen}
         onToggleMobile={() => setMobileOpen((current) => !current)}
         onCloseMobile={() => setMobileOpen(false)}
+        user={user}
+        onNavigateLogin={onNavigateLogin}
+        onNavigateRegister={onNavigateRegister}
+        onNavigateProfile={onNavigateProfile}
+        onOpenOrders={handleOpenOrders}
+        onOpenFavorites={handleOpenFavorites}
+        onLogout={handleLogout}
       />
 
       <section id="hero">
