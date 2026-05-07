@@ -1,6 +1,12 @@
 import { ZodError } from 'zod'
 
 export function errorHandler(error, _req, res, _next) {
+  if (error?.status && Number.isInteger(error.status)) {
+    return res.status(error.status).json({
+      message: error.message || 'Request error',
+    })
+  }
+
   if (error instanceof ZodError) {
     return res.status(400).json({
       message: 'Validation error',
@@ -24,6 +30,12 @@ export function errorHandler(error, _req, res, _next) {
         path: item.path,
         message: item.message,
       })),
+    })
+  }
+
+  if (error?.name === 'SequelizeUniqueConstraintError') {
+    return res.status(409).json({
+      message: 'Duplicate value for unique field',
     })
   }
 
