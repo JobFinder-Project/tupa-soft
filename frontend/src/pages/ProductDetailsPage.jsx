@@ -74,10 +74,6 @@ export function ProductDetailsPage({ productId, onNavigateHome = () => {}, onNav
   }, [productId])
 
   useEffect(() => {
-    setReviewPage(1)
-  }, [productId])
-
-  useEffect(() => {
     let isMounted = true
 
     async function loadReviews() {

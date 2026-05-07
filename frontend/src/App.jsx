@@ -46,6 +46,7 @@ function App() {
   if (route.name === 'product') {
     return (
       <ProductDetailsPage
+        key={route.productId}
         productId={route.productId}
         onNavigateHome={() => navigateTo('/')}
         onNavigateCatalog={() => navigateTo('/#products')}
