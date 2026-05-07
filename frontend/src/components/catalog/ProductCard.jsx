@@ -1,10 +1,9 @@
 import { formatPrice, stars } from '../../utils/formatters'
 import { Badge, Button } from '@radix-ui/themes'
-import { ChatBubbleIcon } from '@radix-ui/react-icons'
 import { SoftIcon } from '../ui/SoftIcon'
 import { getCategoryIcon } from '../../utils/catalogIcons'
 
-export function ProductCard({ product, inCart, onOpenDetails, onAddToCart, onWhatsApp }) {
+export function ProductCard({ product, inCart, onOpenDetails, onAddToCart }) {
   return (
     <article
       className="product-card"
@@ -54,19 +53,6 @@ export function ProductCard({ product, inCart, onOpenDetails, onAddToCart, onWha
           <span className="price-model">/{product.priceModel}</span>
         </div>
         <div className="card-actions">
-          <Button
-            type="button"
-            variant="surface"
-            color="green"
-            className="btn btn-whatsapp btn-sm"
-            onClick={(event) => {
-              event.stopPropagation()
-              onWhatsApp(`Tenho interesse no software: ${product.name}`)
-            }}
-            aria-label={`Contato WhatsApp para ${product.name}`}
-          >
-            <SoftIcon icon={ChatBubbleIcon} size="sm" />
-          </Button>
           <Button
             type="button"
             variant={inCart ? 'surface' : 'solid'}

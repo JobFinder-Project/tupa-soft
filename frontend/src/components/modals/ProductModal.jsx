@@ -1,11 +1,11 @@
 import { Modal } from './Modal'
 import { formatPrice, stars } from '../../utils/formatters'
 import { Badge, Button } from '@radix-ui/themes'
-import { ChatBubbleIcon, CheckCircledIcon } from '@radix-ui/react-icons'
+import { CheckCircledIcon } from '@radix-ui/react-icons'
 import { SoftIcon } from '../ui/SoftIcon'
 import { getCategoryIcon } from '../../utils/catalogIcons'
 
-export function ProductModal({ product, open, onClose, onAddToCart, onOpenWhatsApp }) {
+export function ProductModal({ product, open, onClose, onAddToCart, onViewDetails }) {
   if (!product) {
     return null
   }
@@ -77,16 +77,15 @@ export function ProductModal({ product, open, onClose, onAddToCart, onOpenWhatsA
             </Button>
             <Button
               type="button"
-              variant="surface"
+              variant="outline"
               color="green"
-              className="btn btn-whatsapp"
-              onClick={() =>
-                onOpenWhatsApp(
-                  `Tenho interesse no software: ${product.name} (${formatPrice(product.price)}/${product.priceModel})`,
-                )
-              }
+              className="btn btn-ghost"
+              onClick={() => {
+                onViewDetails?.(product)
+                onClose()
+              }}
             >
-              <SoftIcon icon={ChatBubbleIcon} size="sm" /> Falar no WhatsApp
+              Ver
             </Button>
           </div>
         </div>

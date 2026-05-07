@@ -26,7 +26,7 @@ import { openWhatsApp } from '../utils/whatsapp'
 import { SoftIcon } from '../components/ui/SoftIcon'
 import { getCategoryIcon, PAGE_ICON_COMPONENTS } from '../utils/catalogIcons'
 
-export function HomePage() {
+export function HomePage({ onViewProduct = () => {} }) {
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
   const [testimonials, setTestimonials] = useState([])
@@ -112,6 +112,10 @@ export function HomePage() {
   function handleOpenProduct(product) {
     setSelectedProduct(product)
     setProductModalOpen(true)
+  }
+
+  function handleViewProduct(product) {
+    onViewProduct(product)
   }
 
   function handleCheckout() {
@@ -218,7 +222,7 @@ export function HomePage() {
               <SoftIcon icon={PAGE_ICON_COMPONENTS.verified} size="sm" /> <span>Licença ativada!</span>
             </div>
             <div className="floating-badge floating-badge-2">
-              <SoftIcon icon={PAGE_ICON_COMPONENTS.support} size="sm" /> <span>Suporte em Manaus</span>
+              <SoftIcon icon={PAGE_ICON_COMPONENTS.support} size="sm" /> <span>Suporte em Itacoatiara</span>
             </div>
           </div>
         </div>
@@ -276,7 +280,6 @@ export function HomePage() {
                   inCart={inCartIds.has(product.id)}
                   onOpenDetails={handleOpenProduct}
                   onAddToCart={handleAddToCart}
-                  onWhatsApp={openWhatsApp}
                 />
               ))
             )}
@@ -306,7 +309,7 @@ export function HomePage() {
                 <SoftIcon icon={PAGE_ICON_COMPONENTS.stepPlan} size="md" />
               </div>
               <h3>Solicite e Licencie</h3>
-              <p>Adicione ao carrinho ou entre em contato via WhatsApp. Nossa equipe em Manaus cuidará de tudo.</p>
+              <p>Adicione ao carrinho ou entre em contato via WhatsApp. Nossa equipe em Itacoatiara cuidará de tudo.</p>
             </div>
             <div className="how-step">
               <div className="step-number">3</div>
@@ -350,7 +353,7 @@ export function HomePage() {
       <section id="cta-banner">
         <div className="container">
           <h2>Pronto para digitalizar seu negócio?</h2>
-          <p>Fale com nossa equipe em Manaus e receba uma recomendação personalizada, grátis.</p>
+          <p>Fale com nossa equipe em Itacoatiara e receba uma recomendação personalizada, grátis.</p>
           <div className="cta-actions">
             <a href="#products" className="btn btn-white btn-sm">
               <SoftIcon icon={getCategoryIcon('supermercado')} size="sm" /> Ver Catálogo
@@ -458,7 +461,7 @@ export function HomePage() {
           <div className="footer-col footer-contact">
             <h4>Contato</h4>
             <p>
-              <SoftIcon icon={GlobeIcon} size="sm" /> Manaus, Amazonas — Brasil
+              <SoftIcon icon={GlobeIcon} size="sm" /> Itacoatiara, Amazonas — Brasil
             </p>
             <p>
               <SoftIcon icon={ChatBubbleIcon} size="sm" /> (92) 9 9999-0000
@@ -483,7 +486,7 @@ export function HomePage() {
         <div className="footer-bottom">
           <span>© 2026 TupãSoft — Todos os direitos reservados.</span>
           <span>
-            Feito com ❤️ em Manaus, AM · <a href="#">Política de Privacidade</a> · <a href="#">LGPD</a>
+            Feito com ❤️ em Itacoatiara, AM · <a href="#">Política de Privacidade</a> · <a href="#">LGPD</a>
           </span>
         </div>
       </footer>
@@ -502,7 +505,7 @@ export function HomePage() {
         open={productModalOpen}
         onClose={() => setProductModalOpen(false)}
         onAddToCart={handleAddToCart}
-        onOpenWhatsApp={openWhatsApp}
+        onViewDetails={handleViewProduct}
       />
 
       <ToastContainer toasts={toasts} />

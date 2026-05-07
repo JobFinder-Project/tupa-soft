@@ -5,7 +5,7 @@ import { SoftIcon } from '../ui/SoftIcon'
 import { BackpackIcon, ChatBubbleIcon, TrashIcon } from '@radix-ui/react-icons'
 import { getCategoryIcon } from '../../utils/catalogIcons'
 
-export function CartModal({ open, items, total, onClose, onRemoveItem, onCheckout }) {
+export function CartModal({ open, items, total, onClose, onRemoveItem, onCheckout, continueHref = '#products' }) {
   return (
     <Modal open={open} onClose={onClose} title="Meu Carrinho">
       <div className="modal-header">
@@ -24,7 +24,7 @@ export function CartModal({ open, items, total, onClose, onRemoveItem, onCheckou
               <SoftIcon icon={BackpackIcon} size="lg" />
             </div>
             <p>Seu carrinho está vazio.</p>
-            <a href="#products" className="btn btn-primary btn-sm" style={{ marginTop: '1rem', display: 'inline-flex' }} onClick={onClose}>
+            <a href={continueHref} className="btn btn-primary btn-sm" style={{ marginTop: '1rem', display: 'inline-flex' }} onClick={onClose}>
               Ver softwares
             </a>
           </div>

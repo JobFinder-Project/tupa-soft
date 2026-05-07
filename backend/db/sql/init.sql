@@ -1,6 +1,7 @@
 BEGIN;
 
 DROP TABLE IF EXISTS inquiries;
+DROP TABLE IF EXISTS product_reviews;
 DROP TABLE IF EXISTS product_features;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS categories;
@@ -39,6 +40,15 @@ CREATE TABLE product_features (
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+CREATE TABLE product_reviews (
+  id SERIAL PRIMARY KEY,
+  product_id INT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+  author_name VARCHAR(120) NOT NULL,
+  rating INT NOT NULL CHECK (rating >= 1 AND rating <= 5),
+  comment TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
 CREATE TABLE inquiries (
   id SERIAL PRIMARY KEY,
   full_name VARCHAR(120) NOT NULL,
@@ -55,6 +65,8 @@ CREATE INDEX idx_products_active ON products(active);
 CREATE INDEX idx_products_price_cents ON products(price_cents);
 CREATE INDEX idx_products_rating ON products(rating DESC);
 CREATE INDEX idx_product_features_product_id ON product_features(product_id);
+CREATE INDEX idx_product_reviews_product_id ON product_reviews(product_id);
+CREATE INDEX idx_product_reviews_created_at ON product_reviews(created_at DESC);
 
 INSERT INTO categories (slug, name, description) VALUES
 ('supermercado', 'Supermercado', 'Solucoes para operacao de supermercados e mercearias.'),
@@ -126,6 +138,53 @@ JOIN (
     ('mesa-digital-lite', 'Conta compartilhada por mesa', 2)
 ) AS v(product_slug, feature_text, sort_order)
   ON p.slug = v.product_slug;
+
+WITH review_samples AS (
+  SELECT
+    ARRAY[
+      'Aline Campos',
+      'Carlos Mendes',
+      'Marina Pires',
+      'Roberto Lima',
+      'Fernanda Souza',
+      'Paulo Henrique',
+      'Bruna Costa',
+      'Gabriel Rocha',
+      'Larissa Silva',
+      'Tiago Almeida'
+    ] AS names,
+    ARRAY[
+      'Sistema rapido e intuitivo para a equipe.',
+      'Relatorios claros e suporte eficiente.',
+      'Facilitou o dia a dia do caixa e estoque.',
+      'Boa relacao custo-beneficio e facil implantacao.',
+      'Funcionalidades completas e treinamento objetivo.',
+      'Integracao com outros sistemas funcionou bem.',
+      'Interface limpa e bom desempenho geral.',
+      'Melhorou nossos indicadores em poucas semanas.',
+      'Equipe satisfeita com as automacoes.',
+      'Recomendo para negocios que querem crescer.'
+    ] AS comments
+)
+INSERT INTO product_reviews (product_id, author_name, rating, comment, created_at)
+SELECT
+  p.id,
+  review_samples.names[(gs % array_length(review_samples.names, 1)) + 1],
+  ((gs + p.id) % 5) + 1,
+  review_samples.comments[(gs % array_length(review_samples.comments, 1)) + 1],
+  NOW() - (gs || ' days')::interval
+FROM products p
+CROSS JOIN generate_series(1, 10) AS gs
+CROSS JOIN review_samples;
+
+UPDATE products
+SET reviews_count = sub.review_count
+FROM (
+  SELECT product_id, COUNT(*) AS review_count
+  FROM product_reviews
+  GROUP BY product_id
+) sub
+WHERE products.id = sub.product_id;
 
 INSERT INTO inquiries (full_name, email, phone, message, source, product_id) VALUES
 ('Marcos Silva', 'marcos@mercadobompreco.com.br', '(92) 99999-1111', 'Gostaria de uma demonstracao para duas lojas.', 'whatsapp', (SELECT id FROM products WHERE slug = 'supermarket-total')),

@@ -13,6 +13,7 @@ function normalizeCategory(item) {
 function normalizeProduct(item) {
   return {
     id: item.id,
+    slug: item.slug,
     name: item.name,
     category: item.category_slug,
     categoryLabel: item.category_name,
@@ -22,7 +23,9 @@ function normalizeProduct(item) {
     reviews: Number(item.reviews_count ?? 0),
     badge: item.badge ?? 'Destaque',
     badgeType: `badge-${item.badge_type ?? 'primary'}`,
-    description: item.short_description,
+    description: item.short_description ?? item.long_description ?? '',
+    longDescription: item.long_description ?? item.short_description ?? '',
+    videoUrl: item.video_url ?? item.preview_url ?? '',
     features: Array.isArray(item.features) ? item.features : [],
   }
 }
@@ -58,5 +61,32 @@ export async function getCatalogData() {
     categories,
     products,
     testimonials: TESTIMONIALS,
+  }
+}
+
+export async function getProductDetails(productId) {
+  const response = await fetchJson(`/products/${productId}`)
+
+  return normalizeProduct(response.data ?? {})
+}
+
+export async function getProductReviews(productId, { limit = 8, offset = 0 } = {}) {
+  const params = new URLSearchParams({
+    limit: String(limit),
+    offset: String(offset),
+  })
+  const response = await fetchJson(`/products/${productId}/reviews?${params.toString()}`)
+
+  return {
+    items: (response.data ?? []).map((item) => ({
+      id: item.id,
+      authorName: item.author_name,
+      rating: Number(item.rating ?? 0),
+      comment: item.comment,
+      createdAt: item.created_at,
+    })),
+    total: Number(response.meta?.total ?? 0),
+    limit: Number(response.meta?.limit ?? limit),
+    offset: Number(response.meta?.offset ?? offset),
   }
 }
