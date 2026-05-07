@@ -32,6 +32,9 @@ services:
       PORT: ${PORT_BACKEND:-3333}
       CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
       DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-7d}
+      BCRYPT_SALT_ROUNDS: ${BCRYPT_SALT_ROUNDS:-10}
     ports:
       - '${PORT_BACKEND:-3333}:${PORT_BACKEND:-3333}'
     command: npm run start
