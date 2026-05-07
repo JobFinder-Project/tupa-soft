@@ -3,6 +3,7 @@ import Product from './Product.js'
 import ProductFeature from './ProductFeature.js'
 import Inquiry from './Inquiry.js'
 import ProductReview from './ProductReview.js'
+import User from './User.js'
 
 Category.hasMany(Product, {
   foreignKey: 'categoryId',
@@ -44,4 +45,4 @@ ProductReview.belongsTo(Product, {
   as: 'product',
 })
 
-export { Category, Product, ProductFeature, Inquiry, ProductReview }
+export { Category, Product, ProductFeature, Inquiry, ProductReview, User }
