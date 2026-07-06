@@ -152,6 +152,9 @@ export function OrdersPage({
             </div>
 
             <div className="orders-header-actions">
+              <Button type="button" variant="outline" color="green" className="btn btn-ghost btn-sm" onClick={onNavigateHome}>
+                Início
+              </Button>
               <Button type="button" variant="outline" color="green" className="btn btn-ghost btn-sm" onClick={onNavigateCatalog}>
                 <SoftIcon icon={ChevronLeftIcon} size="sm" /> Catálogo
               </Button>
