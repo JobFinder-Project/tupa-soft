@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
   ChatBubbleIcon,
+  CheckCircledIcon,
   ClockIcon,
   EnvelopeClosedIcon,
   GlobeIcon,
@@ -17,6 +18,7 @@ import { Navbar } from '../components/layout/Navbar'
 import { CartModal } from '../components/modals/CartModal'
 import { ProductModal } from '../components/modals/ProductModal'
 import { ToastContainer } from '../components/ui/ToastContainer'
+import { StructuredInquiryForm } from '../components/sections/StructuredInquiryForm'
 import { useCart } from '../hooks/useCart'
 import { useCatalogFilters } from '../hooks/useCatalogFilters'
 import { useScrollReveal } from '../hooks/useScrollReveal'
@@ -32,6 +34,7 @@ export function HomePage({
   onNavigateLogin = () => {},
   onNavigateRegister = () => {},
   onNavigateProfile = () => {},
+  onOpenOrders = () => {},
 }) {
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
@@ -138,7 +141,7 @@ export function HomePage({
   }
 
   function handleOpenOrders() {
-    pushToast('Meus pedidos estara disponivel em breve.', 'error')
+    onOpenOrders()
   }
 
   function handleOpenFavorites() {
@@ -378,21 +381,41 @@ export function HomePage({
         </div>
       </section>
 
-      <section id="cta-banner">
+      <section id="contact">
         <div className="container">
-          <h2>Pronto para digitalizar seu negócio?</h2>
-          <p>Fale com nossa equipe em Itacoatiara e receba uma recomendação personalizada, grátis.</p>
-          <div className="cta-actions">
-            <a href="#products" className="btn btn-white btn-sm">
-              <SoftIcon icon={getCategoryIcon('supermercado')} size="sm" /> Ver Catálogo
-            </a>
-            <button
-              type="button"
-              className="btn btn-outline-white btn-sm"
-              onClick={() => openWhatsApp('Olá! Gostaria de uma recomendação de software para meu negócio.')}
-            >
-              <SoftIcon icon={ChatBubbleIcon} size="sm" /> Falar no WhatsApp
-            </button>
+          <div className="contact-grid animate-in">
+            <div className="contact-copy">
+              <div className="section-tag section-tag-light">Contato estruturado</div>
+              <h2>Formalize o pedido e acompanhe cada etapa</h2>
+              <p>
+                Envie seus dados, selecione o produto e receba um comprovante com protocolo, histórico de pagamentos e acesso ao dashboard.
+              </p>
+              <ul className="contact-benefits">
+                <li>
+                  <SoftIcon icon={CheckCircledIcon} size="sm" /> Dados pessoais + produto em um fluxo único
+                </li>
+                <li>
+                  <SoftIcon icon={CheckCircledIcon} size="sm" /> Protocolo de recebimento e próximos passos
+                </li>
+                <li>
+                  <SoftIcon icon={CheckCircledIcon} size="sm" /> Painel com progresso e histórico de pagamentos
+                </li>
+              </ul>
+              <div className="cta-actions cta-actions-left">
+                <a href="#products" className="btn btn-white btn-sm">
+                  <SoftIcon icon={getCategoryIcon('supermercado')} size="sm" /> Ver Catálogo
+                </a>
+                <button
+                  type="button"
+                  className="btn btn-outline-white btn-sm"
+                  onClick={() => openWhatsApp('Olá! Gostaria de uma recomendação de software para meu negócio.')}
+                >
+                  <SoftIcon icon={ChatBubbleIcon} size="sm" /> Falar no WhatsApp
+                </button>
+              </div>
+            </div>
+
+            <StructuredInquiryForm products={products} onOpenOrders={handleOpenOrders} />
           </div>
         </div>
       </section>

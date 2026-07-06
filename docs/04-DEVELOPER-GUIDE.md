@@ -92,6 +92,7 @@ Este guia descreve como o projeto está sendo desenvolvido hoje, com foco no flu
 | `GET /api/products` | filtros de busca/categoria/ordenação | lista de produtos |
 | `GET /api/categories` | sem payload | lista de categorias |
 | `POST /api/inquiries` | dados de contato e mensagem | confirmação de registro |
+| `GET /api/contracts?email=...` | email do cliente | contratos, etapas e pagamentos |
 
 ---
 
@@ -103,6 +104,8 @@ Este guia descreve como o projeto está sendo desenvolvido hoje, com foco no flu
 | Produtos | 12 |
 | Features de produto | 28 |
 | Inquéritos seed | 3 |
+| Contratos seed | 3 |
+| Pagamentos seed | 8 |
 
 ---
 

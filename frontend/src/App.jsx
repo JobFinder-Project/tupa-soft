@@ -4,12 +4,14 @@ import { ProductDetailsPage } from './pages/ProductDetailsPage'
 import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { ProfilePage } from './pages/ProfilePage'
+import { OrdersPage } from './pages/OrdersPage'
 import { useAuth } from './contexts/AuthContext'
 
 const PRODUCT_PATH_REGEX = /^\/produto\/([^/]+)\/?$/
 const LOGIN_PATH_REGEX = /^\/login\/?$/
 const REGISTER_PATH_REGEX = /^\/register\/?$/
 const PROFILE_PATH_REGEX = /^\/perfil\/?$/
+const ORDERS_PATH_REGEX = /^\/pedidos\/?$/
 
 function resolveRoute(pathname) {
   const match = pathname.match(PRODUCT_PATH_REGEX)
@@ -31,6 +33,10 @@ function resolveRoute(pathname) {
 
   if (PROFILE_PATH_REGEX.test(pathname)) {
     return { name: 'profile' }
+  }
+
+  if (ORDERS_PATH_REGEX.test(pathname)) {
+    return { name: 'orders' }
   }
 
   return { name: 'home' }
@@ -84,6 +90,16 @@ function App() {
     )
   }
 
+  if (route.name === 'orders' && !isAuthenticated) {
+    return (
+      <LoginPage
+        onNavigateHome={() => navigateTo('/')}
+        onNavigateRegister={() => navigateTo('/register')}
+        onSuccess={() => navigateTo('/pedidos')}
+      />
+    )
+  }
+
   if (route.name === 'product') {
     return (
       <ProductDetailsPage
@@ -91,10 +107,12 @@ function App() {
         productId={route.productId}
         onNavigateHome={() => navigateTo('/')}
         onNavigateCatalog={() => navigateTo('/#products')}
+        onNavigateContact={() => navigateTo('/#contact')}
         onNavigateLogin={() => navigateTo('/login')}
         onNavigateRegister={() => navigateTo('/register')}
         onNavigateProfile={() => navigateTo('/perfil')}
         onRequireAuth={requireAuth}
+        onOpenOrders={() => navigateTo('/pedidos')}
       />
     )
   }
@@ -129,12 +147,25 @@ function App() {
     )
   }
 
+  if (route.name === 'orders') {
+    return (
+      <OrdersPage
+        onNavigateHome={() => navigateTo('/')}
+        onNavigateCatalog={() => navigateTo('/#products')}
+        onNavigateContact={() => navigateTo('/#contact')}
+        onNavigateLogin={() => navigateTo('/login')}
+        onNavigateRegister={() => navigateTo('/register')}
+      />
+    )
+  }
+
   return (
     <HomePage
       onViewProduct={(product) => navigateTo(`/produto/${product.id}`)}
       onNavigateLogin={() => navigateTo('/login')}
       onNavigateRegister={() => navigateTo('/register')}
       onNavigateProfile={() => navigateTo('/perfil')}
+      onOpenOrders={() => navigateTo('/pedidos')}
     />
   )
 }

@@ -25,7 +25,8 @@ O projeto é desenvolvido em arquitetura full-stack, com separação clara entre
 ┌───────────────────────▼──────────────────────────────────────┐
 │                         DADOS                                │
 │  PostgreSQL 16                                               │
-│  categories, products, product_features, inquiries           │
+│  categories, products, product_features, inquiries,          │
+│  contracts, contract_payments                                │
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -37,7 +38,7 @@ O projeto é desenvolvido em arquitetura full-stack, com separação clara entre
 |---|---|---|
 | Frontend | React 19 + Vite | Renderização, filtros, navegação e interação do catálogo |
 | Backend | Node.js + Express | Expor API, validar entrada, aplicar regras de negócio |
-| Persistência | PostgreSQL + Sequelize | Armazenar catálogo e inquéritos com integridade |
+| Persistência | PostgreSQL + Sequelize | Armazenar catálogo, inquéritos, contratos e pagamentos com integridade |
 | Infra local | Docker Compose | Subir frontend, backend e banco de forma integrada |
 
 ---
@@ -76,10 +77,10 @@ Frontend renderiza cards atualizados
 ## 🔄 Fluxo de Dados (Inquérito / Formulário de Contato)
 
 ```
-Usuário preenche formulário no carrinho
-  ├─ Dados pessoais (nome, email, empresa, telefone)
-  ├─ Produtos selecionados
-  └─ Descrição da necessidade
+Usuário preenche formulário estruturado na home ou no detalhe do produto
+  ├─ Dados pessoais (nome, email, telefone)
+  ├─ Produto selecionado
+  └─ Mensagem livre da necessidade
         ↓
 Frontend chama POST /api/inquiries
         ↓
@@ -87,16 +88,11 @@ Backend valida payload (DTO)
         ↓
 Service persiste no banco com status = "recebido"
         ↓
-Backend envia email automático ao cliente
-  ├─ Comprovante de pedido
-  ├─ Número de protocolo
-  └─ Link para acompanhar progresso
+Frontend gera comprovante local com protocolo, etapas e parcelamento previsto
         ↓
-Backend notifica equipe TupãSoft (email interno)
+Usuário acessa /pedidos para consultar contratos e histórico de pagamentos
         ↓
-API retorna confirmação ao frontend
-        ↓
-Frontend exibe feedback + acesso ao dashboard
+Frontend consulta GET /api/contracts?email=...
 ```
 
 ## 🔄 Fluxo de Dados (Progresso de Pedido)
@@ -121,12 +117,12 @@ Contrato assinado: "contrato assinado" → "acesso liberado"
         ↓
 Cliente tem acesso: "acesso liberado" → "suporte ativo"
   └─ Suporte por email (até 24h)
-        ↓
+                                ↓
 Cliente visualiza todo o histórico no Dashboard
-  ├─ Aba de Contratos com status atual
-  ├─ Histórico de emails
-  ├─ Histórico de pagamentos
-  └─ Data de próxima fatura (se aplicável)
+        ├─ Aba de Contratos com status atual
+        ├─ Histórico de pagamentos
+        ├─ Próximo vencimento
+        └─ Link de acesso quando liberado
 ```
 
 ---
@@ -139,6 +135,7 @@ Cliente visualiza todo o histórico no Dashboard
 | GET | /api/categories | Listagem de categorias |
 | GET | /api/products | Listagem de produtos com filtros |
 | POST | /api/inquiries | Registro de interesse/contato |
+| GET | /api/contracts?email=... | Dashboard de contratos do cliente |
 
 ---
 
@@ -150,6 +147,8 @@ Cliente visualiza todo o histórico no Dashboard
 | products | Entidade principal de oferta |
 | product_features | Detalhes complementares por produto |
 | inquiries | Contatos enviados pelos usuários |
+| contracts | Protocolo do pedido e status comercial |
+| contract_payments | Parcelas e histórico de pagamentos |
 
 ---
 

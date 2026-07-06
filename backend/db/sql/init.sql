@@ -72,6 +72,36 @@ CREATE TABLE inquiries (
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+CREATE TABLE contracts (
+  id SERIAL PRIMARY KEY,
+  contract_number VARCHAR(40) NOT NULL UNIQUE,
+  customer_name VARCHAR(120) NOT NULL,
+  email VARCHAR(180) NOT NULL,
+  phone VARCHAR(30),
+  product_name VARCHAR(150) NOT NULL,
+  status VARCHAR(20) NOT NULL DEFAULT 'recebido' CHECK (status IN ('recebido', 'analise', 'proposta', 'negociacao', 'contrato', 'acesso', 'suporte', 'encerrado')),
+  progress INT NOT NULL DEFAULT 10 CHECK (progress >= 0 AND progress <= 100),
+  current_stage VARCHAR(40) NOT NULL DEFAULT 'recebimento',
+  next_step VARCHAR(160),
+  access_url VARCHAR(255),
+  started_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE contract_payments (
+  id SERIAL PRIMARY KEY,
+  contract_id INT NOT NULL REFERENCES contracts(id) ON DELETE CASCADE,
+  installment_label VARCHAR(120) NOT NULL,
+  amount_cents INT NOT NULL CHECK (amount_cents >= 0),
+  status VARCHAR(20) NOT NULL DEFAULT 'pending' CHECK (status IN ('paid', 'pending', 'overdue')),
+  due_date TIMESTAMPTZ,
+  paid_at TIMESTAMPTZ,
+  method VARCHAR(40),
+  reference VARCHAR(120),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
 CREATE INDEX idx_products_category_id ON products(category_id);
 CREATE INDEX idx_products_active ON products(active);
 CREATE INDEX idx_products_price_cents ON products(price_cents);
@@ -79,6 +109,10 @@ CREATE INDEX idx_products_rating ON products(rating DESC);
 CREATE INDEX idx_product_features_product_id ON product_features(product_id);
 CREATE INDEX idx_product_reviews_product_id ON product_reviews(product_id);
 CREATE INDEX idx_product_reviews_created_at ON product_reviews(created_at DESC);
+CREATE INDEX idx_contracts_email ON contracts(email);
+CREATE INDEX idx_contracts_status ON contracts(status);
+CREATE INDEX idx_contract_payments_contract_id ON contract_payments(contract_id);
+CREATE INDEX idx_contract_payments_due_date ON contract_payments(due_date DESC);
 
 INSERT INTO categories (slug, name, description) VALUES
 ('supermercado', 'Supermercado', 'Solucoes para operacao de supermercados e mercearias.'),
@@ -202,5 +236,41 @@ INSERT INTO inquiries (full_name, email, phone, message, source, product_id) VAL
 ('Marcos Silva', 'marcos@mercadobompreco.com.br', '(92) 99999-1111', 'Gostaria de uma demonstracao para duas lojas.', 'whatsapp', (SELECT id FROM products WHERE slug = 'supermarket-total')),
 ('Ana Costa', 'ana@restogourmet.com', '(11) 98888-2222', 'Tenho interesse em integrar delivery no PDV.', 'site', (SELECT id FROM products WHERE slug = 'pdv-restaurante-max')),
 ('Roberto Lima', 'roberto@contasfirme.com', '(21) 97777-3333', 'Preciso de controle de caixa e conciliacao.', 'site', (SELECT id FROM products WHERE slug = 'finance-flow'));
+
+INSERT INTO contracts (
+  contract_number,
+  customer_name,
+  email,
+  phone,
+  product_name,
+  status,
+  progress,
+  current_stage,
+  next_step,
+  access_url,
+  started_at
+) VALUES
+('TS-2026-0001', 'Marcos Silva', 'marcos@mercadobompreco.com.br', '(92) 99999-1111', 'SuperMarket Total', 'acesso', 84, 'acesso', 'Liberar onboarding com o time de implantacao.', 'https://app.tupasoft.local/acesso/ts-2026-0001', NOW() - INTERVAL '18 days'),
+('TS-2026-0002', 'Ana Costa', 'ana@restogourmet.com', '(11) 98888-2222', 'PDV Restaurante Max', 'negociacao', 46, 'negociacao', 'Validar proposta com integracoes de delivery.', 'https://app.tupasoft.local/acesso/ts-2026-0002', NOW() - INTERVAL '11 days'),
+('TS-2026-0003', 'Roberto Lima', 'roberto@contasfirme.com', '(21) 97777-3333', 'Finance Flow', 'suporte', 100, 'suporte', 'Acompanhar o suporte assistido do primeiro mes.', 'https://app.tupasoft.local/acesso/ts-2026-0003', NOW() - INTERVAL '6 days');
+
+INSERT INTO contract_payments (
+  contract_id,
+  installment_label,
+  amount_cents,
+  status,
+  due_date,
+  paid_at,
+  method,
+  reference
+) VALUES
+((SELECT id FROM contracts WHERE contract_number = 'TS-2026-0001'), 'Entrada', 104970, 'paid', NOW() - INTERVAL '17 days', NOW() - INTERVAL '17 days', 'PIX', 'PIX-TS-0001'),
+((SELECT id FROM contracts WHERE contract_number = 'TS-2026-0001'), '1ª mensalidade', 104970, 'paid', NOW() - INTERVAL '2 days', NOW() - INTERVAL '2 days', 'Boleto', 'BOL-TS-0001'),
+((SELECT id FROM contracts WHERE contract_number = 'TS-2026-0001'), '2ª mensalidade', 104970, 'pending', NOW() + INTERVAL '28 days', NULL, NULL, NULL),
+((SELECT id FROM contracts WHERE contract_number = 'TS-2026-0002'), 'Sinal', 62970, 'paid', NOW() - INTERVAL '10 days', NOW() - INTERVAL '10 days', 'PIX', 'PIX-TS-0002'),
+((SELECT id FROM contracts WHERE contract_number = 'TS-2026-0002'), '1ª mensalidade', 62970, 'pending', NOW() + INTERVAL '20 days', NULL, NULL, NULL),
+((SELECT id FROM contracts WHERE contract_number = 'TS-2026-0002'), '2ª mensalidade', 62970, 'pending', NOW() + INTERVAL '50 days', NULL, NULL, NULL),
+((SELECT id FROM contracts WHERE contract_number = 'TS-2026-0003'), 'Implantacao', 89970, 'paid', NOW() - INTERVAL '5 days', NOW() - INTERVAL '5 days', 'Cartao', 'CAR-TS-0003'),
+((SELECT id FROM contracts WHERE contract_number = 'TS-2026-0003'), 'Suporte assistido', 29970, 'paid', NOW() - INTERVAL '1 days', NOW() - INTERVAL '1 days', 'PIX', 'PIX-TS-0003');
 
 COMMIT;

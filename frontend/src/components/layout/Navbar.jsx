@@ -74,7 +74,7 @@ export function Navbar({
               <a href="#categories">Categorias</a>
               <a href="#products">Produtos</a>
               <a href="#how-it-works">Como Funciona</a>
-              <a href="#cta-banner">Contato</a>
+              <a href="#contact">Contato</a>
             </nav>
           )}
 
@@ -166,7 +166,7 @@ export function Navbar({
           <a href="#how-it-works" className="mobile-link" onClick={onCloseMobile}>
             <SoftIcon icon={PAGE_ICON_COMPONENTS.stepPlan} size="sm" /> Como Funciona
           </a>
-          <a href="#cta-banner" className="mobile-link" onClick={onCloseMobile}>
+          <a href="#contact" className="mobile-link" onClick={onCloseMobile}>
             <SoftIcon icon={ChatBubbleIcon} size="sm" /> Contato
           </a>
           {showAuth && (

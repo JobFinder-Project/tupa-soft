@@ -3,6 +3,7 @@ import healthRoutes from './healthRoutes.js'
 import categoryRoutes from './categoryRoutes.js'
 import productRoutes from './productRoutes.js'
 import inquiryRoutes from './inquiryRoutes.js'
+import contractRoutes from './contractRoutes.js'
 import authRoutes from './authRoutes.js'
 
 const router = Router()
@@ -12,5 +13,6 @@ router.use('/health', healthRoutes)
 router.use('/categories', categoryRoutes)
 router.use('/products', productRoutes)
 router.use('/inquiries', inquiryRoutes)
+router.use('/contracts', contractRoutes)
 
 export default router

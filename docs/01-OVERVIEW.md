@@ -201,9 +201,9 @@ tupa-soft/
 - ✅ Filtros por categoria, preço e ordenação
 - ✅ Carrinho com persistência via localStorage
 - ✅ Modal de detalhes com features, rating e empresa (se terceiro)
-- ✅ Formulário de contato estruturado (dados pessoais + produto)
-- ✅ Comprovante de pedido enviado por email automaticamente
-- ✅ Dashboard com aba de contratos (progresso + histórico de pagamentos)
+- ✅ Formulário de contato estruturado na home e no detalhe do produto (dados pessoais + produto)
+- ✅ Comprovante de pedido com protocolo e histórico previsto de pagamentos
+- ✅ Dashboard em `/pedidos` com aba de contratos do cliente (progresso + histórico de pagamentos)
 - ✅ Rastreamento de etapas: recebimento → análise → proposta → negociação → contrato → acesso → suporte
 - ✅ Integração WhatsApp (backup para má comunicação ou negociação rápida)
 

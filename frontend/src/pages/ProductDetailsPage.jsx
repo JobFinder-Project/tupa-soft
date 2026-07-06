@@ -37,10 +37,12 @@ export function ProductDetailsPage({
   productId,
   onNavigateHome = () => {},
   onNavigateCatalog = () => {},
+  onNavigateContact = () => {},
   onNavigateLogin = () => {},
   onNavigateRegister = () => {},
   onNavigateProfile = () => {},
   onRequireAuth = () => {},
+  onOpenOrders = () => {},
 }) {
   const { user, logout } = useAuth()
   const isLoggedIn = Boolean(user)
@@ -178,7 +180,7 @@ export function ProductDetailsPage({
   }
 
   function handleOpenOrders() {
-    pushToast('Meus pedidos estara disponivel em breve.', 'error')
+    onOpenOrders()
   }
 
   function handleOpenFavorites() {
@@ -300,6 +302,9 @@ export function ProductDetailsPage({
                       onClick={handleBuyNow}
                     >
                       Comprar agora
+                    </Button>
+                    <Button type="button" variant="outline" color="green" className="btn btn-ghost" onClick={onNavigateContact}>
+                      Solicitar proposta
                     </Button>
                   </div>
                 </div>

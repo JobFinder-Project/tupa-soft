@@ -39,7 +39,7 @@ Consolidar, em um único documento, o **Business Model Canvas** do projeto Tupã
 ### 4. Relacionamento com Clientes
 
 - **Pré-venda:** Formulário estruturado (informações pessoais + produto desejado).
-- **Confirmação:** Comprovante de pedido enviado por email automaticamente com número de protocolo.
+- **Confirmação:** Comprovante de pedido com número de protocolo e acompanhamento no dashboard de contratos.
 - **Acompanhamento:** Dashboard com aba de contratos mostrando progresso do pedido (7 etapas).
 - **Etapas:** Recebimento → Análise → Proposta → Negociação → Contrato → Acesso → Suporte Ativo.
 - **Comunicação:** Email primário (24h para todos); WhatsApp como backup ou emergências.
