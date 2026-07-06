@@ -1,246 +1,81 @@
 # 😊 Guia do Usuário
 
-**Versão:** 1.0.0  
-**Última atualização:** 7 de Abril de 2026
+**Versão:** 2.0.0
+**Última atualização:** 6 de Julho de 2026
 
 ---
 
-## 👋 Bem-vindo ao TupãSoft
+## Sobre este guia
 
-O **TupãSoft** é seu marketplace de software confiável. Este guia mostra como usar a plataforma para encontrar, avaliar e adquirir os melhores sistemas para seu negócio.
+Este documento descreve como navegar na interface do TupãSoft como **demonstração acadêmica**. As ações de contato, pedido e dashboard simulam um fluxo de negócio, mas não representam uma operação comercial concluída.
 
----
+## O que o usuário pode fazer
 
-## 🏠 Página Inicial
+- Explorar o catálogo
+- Filtrar por categoria e busca
+- Abrir detalhes de um produto
+- Adicionar itens ao carrinho local
+- Enviar um formulário de interesse
+- Consultar um comprovante demonstrativo
+- Acessar login, perfil e painel de pedidos
 
-Ao abrir o site, você vê:
+## Página inicial
 
-1. **Hero Section** — Apresentação do TupãSoft com destaques
-2. **Categorias** — Segmentos de software disponíveis
-3. **Catálogo** — Lista completa de softwares
-4. **Como Funciona** — Processo de compra em 3 passos
-5. **Depoimentos** — Feedback de clientes reais
-6. **CTA Banner** — Chamada para ação
-7. **Footer** — Links, contato, redes sociais
+Ao abrir o site, você encontra:
 
----
+1. Cabeçalho com navegação e busca
+2. Seções de apresentação do catálogo
+3. Lista de produtos e categorias
+4. Bloco de contato estruturado
+5. Rodapé com links institucionais
 
-## 🔍 Buscar Software
+## Como buscar e filtrar
 
-### Via Barra de Busca (Desktop)
+### Busca
 
-1. Clique no ícone 🔍 no topo da página
-2. Digite o nome ou característica do software
-3. Resultados aparecem em tempo real
+1. Digite um termo na barra de busca
+2. O catálogo filtra os itens exibidos
+3. A busca funciona por parte do nome ou categoria
 
-**Exemplos:**
+### Filtros
 
-- `super` → Softwares para supermercado
-- `nota` → Nota fiscal, calculadoras
-- `restaurante` → Softwares de PDV/restaurante
+1. Selecione uma categoria
+2. Ajuste a ordenação quando disponível
+3. Use o resultado para navegar entre os produtos
 
-### Via Busca Mobile
+## Detalhes do produto
 
-1. Abra o menu hambúrguer (☰)
-2. Use a busca no menu mobile
-3. Resultados de filtram em tempo real
+Ao abrir um produto, a interface mostra:
 
-### Busca Avançada
+- Nome e categoria
+- Descrição resumida
+- Recursos principais
+- Preço ilustrativo
+- Ações de contato e carrinho
 
-A busca funciona com:
+Os valores apresentados têm caráter demonstrativo.
 
-- ✅ Sem acentos necessários (`supermercado` = `supermercado`)
-- ✅ Busca parcial (`super` encontra "SuperMarket Total")
-- ✅ Case-insensitive (`Financeiro` = `financeiro`)
-- ✅ Destaque do termo encontrado
+## Carrinho e comprovante
 
----
+O carrinho existe para simular a composição de interesse do usuário. Depois de enviar o formulário, o sistema pode gerar um comprovante com protocolo e etapas previstas.
 
-## 🏷️ Filtrar por Categoria
+Essa etapa deve ser interpretada como simulação de jornada, não como cobrança efetiva.
 
-### Visualizar Categorias
+## Dashboard de pedidos
 
-1. Role para a seção **"Explore por segmento"**
-2. Clique em uma categoria para filtrar
-3. Ou clique em **"Todos"** para limpar filtro
+O dashboard apresenta uma visão de acompanhamento com:
 
-### Categorias Disponíveis
+- Contratos simulados ou protótipos de contrato
+- Etapa atual
+- Próximo passo
+- Histórico visual de pagamentos previstos
 
-| Ícone | Categoria           | Ideal Para                              |
-| ----- | ------------------- | --------------------------------------- |
-| 🛒    | **Supermercado**    | Mercearias, supermercados, minimercados |
-| 🧮    | **Calculadoras**    | Cálculos fiscais, ICMS, SPED            |
-| 📦    | **Estoque**         | Controle de entrada/saída, validade     |
-| 💰    | **Financeiro**      | Contas a pagar/receber, fluxo de caixa  |
-| 👥    | **RH e Folha**      | Folha de pagamento, ponto eletrônico    |
-| 🍽️    | **Restaurante/PDV** | Comanda digital, delivery, cozinha      |
+## Login e perfil
 
----
+O projeto inclui telas de login, registro e perfil para demonstrar autenticação e manutenção de dados básicos de usuário.
 
-## 💰 Filtrar por Preço
+## Observações importantes
 
-### Usar Slider de Preço
-
-1. Na seção de produtos, localize **"Faixa de preço"**
-2. Selecione o valores desejado:
-   - Até R$ 300
-   - Até R$ 600
-   - Até R$ 1.000
-   - Até R$ 2.000
-   - Todos os preços
-
-3. Produtos filtram automaticamente
-
----
-
-## 📊 Ordenar Produtos
-
-### Opções de Ordenação
-
-1. Clique em **"Ordenar por"**
-2. Escolha uma das opções:
-
-| Opção                | Se você quer...                 |
-| -------------------- | ------------------------------- |
-| **Relevância**       | Ver produtos mais procurados    |
-| **Menor Preço**      | Soluções economicamente viáveis |
-| **Maior Preço**      | Sistemas premium/completos      |
-| **Melhor Avaliação** | Softwares mais bem avaliados    |
-
----
-
-## 🎯 Visualizar Detalhes do Produto
-
-### Abrir Modal de Detalhes
-
-1. Clique em qualquer card de produto
-2. Modal abre com informações completas
-
-### Informações Disponíveis no Modal
-
-- 📛 **Nome e Ícone** — Identificação visual
-- 🏷️ **Badge** — "Mais Vendido", "Novo", "Popular"
-- ⭐ **Rating** — Número de estrelas (até 5) + quantidade de avaliações
-- 📝 **Descrição** — O que o software faz
-- ✅ **Funcionalidades** — Lista de features principais
-- 💵 **Preço** — Valor mensal ou licença única
-- 📌 **Ações** — Adicionar ao carrinho e **Ver** detalhes
-- 🎥 **Preview do produto** — Link para a página com o vídeo de demonstração
-
-ao clicar no botão **Ver**, o usuário é redirecionado para a página do produto, mostrando o vídeo de utilização do software, descrição detalhada, funcionalidades, avaliações e dois botões: **Adicionar ao carrinho** e **Comprar agora**.
-na seção de avaliações, são exibidas as 5 mais recentes e o usuário pode deixar a própria avaliação.
-
-### Exemplo de Card
-
-```
-┌───────────────────────────────┐
-│         🛒 SuperMarket Total  │
-│      Supermercado             │
-│      ★★★★★ 4.9 (213)          │
-│                               │
-│  R$ 799/mês                   │
-│                               │
-│  ✅ Funcionalidades:          │
-│  • Frente de Caixa (PDV)      │
-│  • Emissão NF-e / NFC-e       │
-│  • Controle de Estoque        │
-│  • Relatórios gerenciais      │
-│                               │
-│  [🛒 Carrinho] [💬 WhatsApp]  │
-└───────────────────────────────┘
-```
-
----
-
-## 🛒 Carrinho de Compras
-
-### Adicionar ao Carrinho
-
-1. Abra detalhes do produto
-2. Clique em **"🛒 Adicionar ao Carrinho"**
-3. Notificação confirma adição
-4. Índice do carrinho (topo direito) atualiza
-
-### Visualizar Carrinho
-
-1. Clique no ícone 🛒 (topo direito)
-2. Modal mostra itens adicionados
-3. Total é calculado automaticamente
-
-### Remover do Carrinho
-
-1. Abra o carrinho
-2. Clique no ❌ ao lado do item
-3. Item é removido imediatamente
-
-### Persistência
-
-- Carrinho é salvo automaticamente no navegador
-- Se fechar e reabrir o site, itens permanecem
-- Validade: enquanto não limpar localStorage
-
----
-
-## ♿ Acessibilidade
-
-O TupãSoft foi desenvolvido com acessibilidade em mente:
-
-- ✅ **Contraste** — Cores contrastadas para leitura
-- ✅ **Navegação Teclado** — Use Tab e Enter
-- ✅ **Leitores de Tela** — Compatível com NVDA, JAWS, VoiceOver
-- ✅ **Semântica HTML** — Estrutura lógica
-- ✅ **ARIA Labels** — Descrições para botões/links
-
-### Atalhos de Teclado
-
-| Atalho   | Função                       |
-| -------- | ---------------------------- |
-| `Tab`    | Navegar entre elementos      |
-| `Enter`  | Ativar botão/link            |
-| `Esc`    | Fechar modal                 |
-| `Ctrl+F` | Buscar na página (navegador) |
-
----
-
-## 🔒 Privacidade e Segurança
-
-### Seus Dados
-
-- 🔐 **Nenhum dado pessoal armazenado** — Apenas carrinho local
-- 📊 **Cookies analytics** — Apenas para melhorar experiência
-- 🚨 **LGPD compliant** — Conforme Lei Geral de Proteção de Dados
-
-Veja [Política de Privacidade](./08-PRIVACY-LGPD.md) para detalhes.
-
----
-
-## ❓ Perguntas Frequentes
-
-**P: Como faço para comprar?**  
-R: Adicione produtos ao carrinho e clique "Fechar via WhatsApp". Nossa equipe entrará em contato com opções de pagamento.
-
-**P: Qual é o tempo de entrega?**  
-R: Software é digital. Você recebe acesso em até 48h após confirmação de pagamento.
-
-**P: Posso testar antes de comprar?**  
-R: Sim! Entre em contato via WhatsApp para solicitar versão trial.
-
-**P: Vocês oferecem suporte?**  
-R: Sim, suporte técnico 100% em português, via WhatsApp, email ou telefone.
-
-**P: Qual é a forma de pagamento?**  
-R: Cartão crédito, transferência bancária, PIX e boleto. Consulte opções à equipe de vendas.
-
-Veja [FAQ Completo](./13-FAQ.md) para mais respostas.
-
----
-
-## 📞 Precisa de Ajuda?
-
-📧 **Email:** support@tupansoft.com.br  
-📞 **Telefone:** (92) 9 9999-0000  
-💬 **WhatsApp:** [Falar conosco](https://wa.me/5592999990000)
-
----
-
-**Obrigado por usar TupãSoft!** ⚡
+- Nenhum valor exibido deve ser interpretado como proposta comercial fechada.
+- O WhatsApp funciona como canal de contato de demonstração.
+- O projeto não executa venda real nem checkout financeiro ativo.

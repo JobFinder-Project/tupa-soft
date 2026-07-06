@@ -74,7 +74,9 @@ Frontend renderiza cards atualizados
 
 ---
 
-## 🔄 Fluxo de Dados (Inquérito / Formulário de Contato)
+## 🔄 Fluxo de Dados (Contato / Formulário - cenário atual e previsto)
+
+As etapas abaixo misturam o comportamento já implementado com passos que ainda fazem parte do desenho do produto.
 
 ```
 Usuário preenche formulário estruturado na home ou no detalhe do produto
@@ -95,28 +97,30 @@ Usuário acessa /pedidos para consultar contratos e histórico de pagamentos
 Frontend consulta GET /api/contracts?email=...
 ```
 
-## 🔄 Fluxo de Dados (Progresso de Pedido)
+## 🔄 Fluxo Conceitual de Progresso de Pedido
+
+Este fluxo representa a evolução planejada do atendimento, não uma operação comercial ativa.
 
 ```
 Equipe TupãSoft recebe inquérito
         ↓
 Altera status: "recebido" → "análise"
-  └─ Sistema envia notificação por email ao cliente
+        └─ O sistema poderia enviar notificação por email ao cliente
         ↓
 Após análise: "análise" → "proposta enviada"
-  └─ Email com detalhes da proposta
+        └─ Email com detalhes da proposta, se essa automação for implementada
         ↓
 Negociação (email/WhatsApp): status = "negociação"
-  └─ Email/WhatsApp com propostas alternativas
+        └─ Email/WhatsApp com propostas alternativas, em um cenário futuro
         ↓
 Acordo alcançado: "negociação" → "contrato assinado"
-  └─ Email com contrato para assinatura
+        └─ Email com contrato para assinatura, caso o fluxo venha a existir
         ↓
 Contrato assinado: "contrato assinado" → "acesso liberado"
-  └─ Email com credenciais de acesso
+        └─ Email com credenciais de acesso, quando aplicável
         ↓
 Cliente tem acesso: "acesso liberado" → "suporte ativo"
-  └─ Suporte por email (até 24h)
+        └─ Suporte por email, se o processo for formalizado
                                 ↓
 Cliente visualiza todo o histórico no Dashboard
         ├─ Aba de Contratos com status atual

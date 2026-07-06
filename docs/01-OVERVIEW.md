@@ -1,221 +1,97 @@
 # 🌐 Visão Geral do Projeto
 
-**Versão:** 2.1.0  
-**Última atualização:** 23 de Abril de 2026  
-**Status:** Em Desenvolvimento (Full-Stack)
+**Versão:** 3.0.0
+**Última atualização:** 6 de Julho de 2026
+**Status:** MVP demonstrativo para trabalho acadêmico
 
 ---
 
-## 📌 Sumário Executivo
+## Sumário Executivo
 
-**TupãSoft** é uma plataforma digital de soluções de software em desenvolvimento, com arquitetura full-stack e catálogo web responsivo. A empresa atua em três frentes: venda de templates próprios, revenda de softwares de parceiros e desenvolvimento de software personalizado sob especificação do cliente. O foco está em soluções para supermercados, controladoras fiscais, estoque, financeiro, RH e restaurantes.
+O **TupãSoft** é um projeto full-stack criado como estudo acadêmico de uma plataforma de catálogo e atendimento para software. A implementação atual serve como demonstração técnica de navegação, filtros, formulários, autenticação e dashboard, mas **não deve ser apresentada como produto comercial pronto**.
 
-O nome homenageia **Tupã**, deus do trovão na mitologia Tupi-Guarani, símbolizando força, poder e inovação nascidos no Amazonas.
+O escopo planejado inclui a ideia de softwares próprios, possível revenda de soluções de parceiros e a hipótese de sistemas personalizados com apoio de IA. Esses pontos permanecem como **planejamento futuro**.
 
-### 🎯 Objetivos Principais
+## Objetivos do Projeto
 
-| Objetivo           | Descrição                                                                   |
-| ------------------ | --------------------------------------------------------------------------- |
-| **Acessibilidade** | Catálogo de softwares com busca, filtros e detalhes intuitivos              |
-| **Conversão**      | Fluxo de compra com formulário estruturado, comprovante por email e WhatsApp |
-| **Rastreamento**   | Dashboard com aba de contratos mostrando progresso de aquisição e pagamentos |                    |
-| **Flexibilidade**  | Atendimento em três modelos: próprio, revenda e sob demanda                 |
-| **Confiabilidade** | Sistema seguro, conforme com LGPD e boas práticas de mercado                |
+| Objetivo | Descrição |
+| --- | --- |
+| Demonstração técnica | Mostrar um fluxo completo de catálogo, contato e acompanhamento |
+| Organização de produto | Exercitar estrutura de páginas, serviços e persistência |
+| Aprendizado acadêmico | Documentar decisões de arquitetura e negócio |
+| Evolução futura | Registrar hipóteses como IA, personalização e monetização |
 
----
+## O que está implementado
 
-## 🏗️ Arquitetura Técnica
+- Catálogo de softwares com categorias, busca e filtros
+- Cards de produto e modal de detalhes
+- Carrinho local no navegador
+- Formulário estruturado de contato/pedido
+- Comprovante de solicitação com protocolo e etapas previstas
+- Login, registro e perfil do usuário
+- Dashboard de pedidos e contratos com histórico visual
+- Backend em Node.js com API REST e banco PostgreSQL
+- Ambiente local com Docker Compose
 
-### Stack de Tecnologias
+## O que está planejado
 
-#### Frontend
+- Integração real de pagamentos
+- Publicação em produção com pipeline de deploy
+- IA para sistemas personalizados
+- Modelo comercial de revenda ou oferta própria
+- Camadas extras de suporte, automação e análise
 
-- **React 19** — UI library moderna e reativa
-- **Vite** — Build tool rápido e otimizado
-- **CSS3** — Responsivo com Custom Properties
-- **JavaScript (ES6+)** — Hooks, composição funcional
+## Stack Técnica
 
-#### Backend
+### Frontend
 
-- **Node.js** — Runtime JavaScript servidor
-- **Express.js** — Framework HTTP minimalista
-- **Sequelize** — ORM para banco de dados
-- **PostgreSQL** — Banco de dados relacional
+- React 19
+- Vite
+- JavaScript ES6+
+- CSS customizado com variáveis e componentes reutilizáveis
 
-#### Infraestrutura
+### Backend
 
-- **Docker & Docker Compose** — Containerização e orquestração
-- **GitHub Actions** — CI/CD planejado
-- **PostgreSQL 16** — Dados persistentes (categorias, produtos, inquéritos)
+- Node.js
+- Express
+- Sequelize
+- PostgreSQL
 
-#### Dependências Externas
+### Infraestrutura
 
-- **npm packages** — Gerenciamento de dependências (frontend e backend)
-- **APIs externas:** WhatsApp Business API (opcional para automação)
+- Docker
+- Docker Compose
+- Estrutura preparada para CI/CD futura
 
-### Arquitetura em Camadas
+## Arquitetura em Camadas
 
-```
-┌──────────────────────────────────────────────────────────┐
-│               CLIENTE (Browser)                           │
-│  React Components + Vite Build + HTTP Requests           │
-└──────────────────┬───────────────────────────────────────┘
-                   │ HTTP/REST API
-┌──────────────────▼───────────────────────────────────────┐
-│        SERVIDOR (Node.js/Express)                        │
-│  Routes → Controllers → Services → Models                │
-└──────────────────┬───────────────────────────────────────┘
-                   │ SQL Queries
-┌──────────────────▼───────────────────────────────────────┐
-│  BANCO DE DADOS (PostgreSQL)                             │
-│  (Categorias, Produtos, Inquéritos, Features)            │
-└──────────────────────────────────────────────────────────┘
-```
-
----
-
-## 📂 Estrutura do Projeto
-
-```
-tupa-soft/
-├── backend/                    # Node.js + Express
-│   ├── src/
-│   │   ├── config/            # Variáveis de ambiente
-│   │   ├── controllers/       # Lógica das rotas
-│   │   ├── services/          # Regras de negócio
-│   │   ├── models/            # Sequelize ORM
-│   │   ├── routes/            # Definição de endpoints
-│   │   ├── middlewares/       # Express middlewares
-│   │   ├── dtos/              # Data Transfer Objects
-│   │   ├── utils/             # Utilitários
-│   │   ├── db/                # Configuração banco
-│   │   ├── app.js             # App Express
-│   │   └── server.js          # Inicialização
-│   ├── db/sql/
-│   │   └── init.sql           # Schema e seeds
-│   ├── Dockerfile
-│   ├── package.json
-│   └── README.md
-├── frontend/                   # React + Vite
-│   ├── src/
-│   │   ├── components/        # React components
-│   │   │   ├── catalog/       # Componentes catálogo
-│   │   │   ├── layout/        # Layout principal
-│   │   │   ├── modals/        # Modais
-│   │   │   └── ui/            # Componentes genéricos
-│   │   ├── pages/             # Páginas principais
-│   │   ├── services/          # API calls (HTTP)
-│   │   ├── hooks/             # React hooks customizados
-│   │   ├── utils/             # Utilitários
-│   │   ├── styles/            # CSS modular
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
-│   ├── public/                # Assets estáticos
-│   ├── Dockerfile
-│   ├── vite.config.js         # Build config
-│   ├── package.json
-│   └── README.md
-├── docs/                       # Documentação completa
-│   ├── 01-OVERVIEW.md
-│   ├── 03-USER-GUIDE.md
-│   ├── 04-ARCHITECTURE.md
-│   ├── 05-DEVELOPER-GUIDE.md
-│   ├── 10-DEPLOYMENT.md
-│   ├── 07-SECURITY.md
-│   └── ... (mais documentação)
-├── docker-compose.yml         # Orquestração de serviços
-├── .github/
-│   └── workflows/             # GitHub Actions CI/CD (planejado)
-├── .gitignore
-└── README.md                  # Documentação principal
+```text
+Cliente (React)
+  ↓ HTTP/REST
+API (Node.js + Express)
+  ↓ SQL / Sequelize
+Banco (PostgreSQL)
 ```
 
----
+## Estrutura Funcional
 
-## 🎨 Design System
+| Área | Papel |
+| --- | --- |
+| Home | Apresentação do catálogo e chamada para ação |
+| Produto | Detalhes, recursos e modal de interação |
+| Pedido | Registro de interesse e comprovante |
+| Dashboard | Visualização de contratos e pagamentos previstos |
+| Administração técnica | Backend, banco e persistência |
 
-### Paleta de Cores (Amazônia)
+## Observações importantes
 
-| Cor             | Código    | Uso                        |
-| --------------- | --------- | -------------------------- |
-| Verde Primário  | `#1a6b3c` | Botões, CTA, theme         |
-| Verde Escuro    | `#0d3d22` | Backgrounds escuros, hover |
-| Amarelo Acento  | `#f0ad4e` | Badges, destaque           |
-| Branco          | `#ffffff` | Backgrounds claros         |
-| Cinza Neutro    | `#6b7280` | Textos secundários         |
-| Vermelho Alerta | `#dc2626` | Erros, validações          |
-| Azul Info       | `#2563eb` | Links, informações         |
+- Os valores exibidos no projeto são ilustrativos.
+- O projeto não foi concebido para venda imediata.
+- A presença de termos como “pedido”, “contrato” e “pagamento” faz parte da simulação de fluxo de negócio.
+- A inclusão de IA é uma ideia futura, ainda não implementada.
 
-### Tipografia
+## Próximos documentos
 
-- **Fonte Principal:** System fonts (Segoe UI, Helvetica, Arial)
-- **Tamanhos:** 14px (mobile) → 16px (desktop)
-- **Contraste WCAG AA+** — Acessibilidade garantida
-
-### Componentes Reutilizáveis
-
-- **Botões:** Primário, Ghost, WhatsApp, outline
-- **Cards:** Produto, categoria, depoimento
-- **Modais:** Carrinho, detalhes do produto
-- **Badges:** Hot, New, Accent, Primary
-- **Inputs:** Busca (desktop + mobile), filtros
-
----
-
-## 📊 Dados do Catálogo
-
-### Categorias
-
-| ID             | Nome                    | Ícone | Produtos |
-| -------------- | ----------------------- | ----- | -------- |
-| `supermercado` | Gestão de Supermercado  | 🛒    | 2        |
-| `calculadoras` | Calculadoras Fiscais    | 🧮    | 2        |
-| `estoque`      | Controle de Estoque     | 📦    | 2        |
-| `financeiro`   | Financeiro              | 💰    | 2        |
-| `rh`           | RH e Folha de Pagamento | 👥    | 2        |
-| `restaurante`  | Restaurante / PDV       | 🍽️    | 2        |
-
-### Produtos
-
-**Total:** 12 produtos  
-**Modelo de Preço:** Mensal (mês) ou Licença única
-
-**Origem da Oferta:** Catálogo pode incluir produtos próprios e soluções de parceiros.
-
-**Exemplos:**
-
-| Nome                | Categoria    | Preço base | Modelo | Rating |
-| ------------------- | ------------ | ---------- | ------ | ------ |
-| SuperMarket Total   | Supermercado | R$ 349,90  | Mês    | 4.8⭐  |
-| Calc Price Plus     | Calculadoras | R$ 79,90   | Mês    | 4.6⭐  |
-| GestorEstoque Pro   | Estoque      | R$ 159,90  | Mês    | 4.7⭐  |
-
----
-
-## ⚡ Funcionalidades Principais
-
-### MVP Atual (v1.0)
-
-- ✅ Catálogo com 12 softwares em 6 categorias
-- ✅ Filtros por categoria, preço e ordenação
-- ✅ Carrinho com persistência via localStorage
-- ✅ Modal de detalhes com features, rating e empresa (se terceiro)
-- ✅ Formulário de contato estruturado na home e no detalhe do produto (dados pessoais + produto)
-- ✅ Comprovante de pedido com protocolo e histórico previsto de pagamentos
-- ✅ Dashboard em `/pedidos` com aba de contratos do cliente (progresso + histórico de pagamentos)
-- ✅ Rastreamento de etapas: recebimento → análise → proposta → negociação → contrato → acesso → suporte
-- ✅ Integração WhatsApp (backup para má comunicação ou negociação rápida)
-
-### Roadmap Futuro
-
-- 🔜 Sistema de pagamento integrado (Stripe, Mercado Pago)
-- 🔜 Autenticação de usuários (OAuth, login)
-- 🔜 Dashboard de vendas
-
----
-
-## 📜 Licença
-
-© 2026 TupãSoft — Todos os direitos reservados.  
-Veja [Licenças](./09-LICENSES.md) para termos completos.
+- [Guia do Usuário](./02-USER-GUIDE.md)
+- [Arquitetura da Aplicação](./03-ARCHITECTURE.md)
+- [Guia do Desenvolvedor](./04-DEVELOPER-GUIDE.md)

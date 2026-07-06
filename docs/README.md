@@ -1,77 +1,48 @@
 # 📚 Documentação TupãSoft
 
-Documentação completa do sistema TupãSoft — Plataforma de soluções de software do Amazonas.
+Documentação do projeto TupãSoft, organizada para um **trabalho acadêmico inicial** e um **MVP demonstrativo**.
 
-## 📋 Índice de Documentação
+O projeto mostra uma plataforma full-stack com catálogo, fluxo de contato e dashboard, mas **não representa um produto comercial pronto para venda**. Os textos de negócio e monetização devem ser lidos como planejamento ou hipótese futura.
 
-### 🚀 Primeiros Passos
+## Índice
 
-- [**Visão Geral do Projeto**](./01-OVERVIEW.md) — Arquitetura, tecnologias e objetivos
-- [**Guia de Instalação**](./02-INSTALLATION.md) — Como configurar e rodar o projeto localmente
-- [**Guia de Uso**](./03-USER-GUIDE.md) — Como usar a plataforma como usuário final
+### Visão e contexto
 
-### 👨‍💻 Desenvolvimento
+- [01-OVERVIEW.md](./01-OVERVIEW.md) — resumo do projeto, escopo atual e o que está planejado
+- [02-USER-GUIDE.md](./02-USER-GUIDE.md) — como navegar na interface demonstrativa
+- [03-ARCHITECTURE.md](./03-ARCHITECTURE.md) — visão técnica da aplicação
 
-- [**Arquitetura da Aplicação**](./04-ARCHITECTURE.md) — Estrutura técnica, padrões e convenções
-- [**Guia do Desenvolvedor**](./05-DEVELOPER-GUIDE.md) — Setup dev, workflow e boas práticas
-- [**Contribuindo**](./06-CONTRIBUTING.md) — Como contribuir com o projeto
+### Desenvolvimento e operação
 
-### 🔐 Conformidade e Segurança
+- [04-DEVELOPER-GUIDE.md](./04-DEVELOPER-GUIDE.md) — guia para evoluir o código
+- [05-PRIVACY-LGPD.md](./05-PRIVACY-LGPD.md) — diretrizes de privacidade e dados
+- [06-LICENSES.md](./06-LICENSES.md) — licenças e termos
+- [07-DEPLOYMENT.md](./07-DEPLOYMENT.md) — execução local e cenário de publicação futuro
 
-- [**Segurança**](./07-SECURITY.md) — Política de segurança, boas práticas e relatório de vulnerabilidades
-- [**Privacidade e LGPD**](./08-PRIVACY-LGPD.md) — Conformidade, coleta de dados e direitos dos usuários
-- [**Licenças**](./09-LICENSES.md) — Licença proprietária, dependências e termos de uso
+### Referência e planejamento
 
-### 📦 Deployment e Operações
+- [08-FAQ.md](./08-FAQ.md) — perguntas frequentes com escopo acadêmico
+- [09-BUSINESS-PLAN.md](./09-BUSINESS-PLAN.md) — hipótese de negócio e objetivos de estudo
+- [10-SALES-MODEL.md](./10-SALES-MODEL.md) — fluxo comercial apenas como planejamento
+- [11-CODE-OF-CONDUCT.md](./11-CODE-OF-CONDUCT.md) — código de conduta
+- [12-CODE-OF-ETHICS.md](./12-CODE-OF-ETHICS.md) — código de ética
+- [13-ESTRUTURA-EMPRESA.md](./13-ESTRUTURA-EMPRESA.md) — estrutura organizacional projetada
+- [14-MODELO-CANVAS.md](./14-MODELO-CANVAS.md) — canvas do projeto
+- [15-FLUXO-SUPORTE.md](./15-FLUXO-SUPORTE.md) — fluxo de suporte e atendimento hipotético
 
-- [**Guia de Deployment**](./10-DEPLOYMENT.md) — Produção, staging e estratégias de release
-- [**CI/CD Pipeline**](./11-CICD.md) — Automação, testes e deploy contínuo
-- [**Troubleshooting**](./12-TROUBLESHOOTING.md) — Problemas comuns e soluções
+## Como ler a documentação
 
-### 📞 Suporte
+- O que estiver descrito como **implementado** existe no código-fonte atual.
+- O que estiver descrito como **planejado** ou **hipotético** não deve ser tratado como entrega pronta.
+- Recursos como IA em sistemas personalizados, monetização e parceria comercial fazem parte do planejamento do trabalho, não da operação atual.
 
-- [**FAQ**](./13-FAQ.md) — Perguntas frequentes
-- [**Suporte ao Cliente**](./14-SUPPORT.md) — Canais, SLA e processo de suporte
-- [**Changelog**](./15-CHANGELOG.md) — Histórico de versões e mudanças
+## Contexto do projeto
 
-### 📋 Códigos de Conduta
+- Natureza: acadêmica e demonstrativa
+- Situação: MVP em evolução
+- Foco: catálogo, experiência do usuário, arquitetura e raciocínio de produto
+- Não objetivo atual: venda imediata ou operação comercial real
 
-- [**Código de Conduta**](./16-CODE-OF-CONDUCT.md) — Expectativas da comunidade
-- [**Código de Ética**](./17-CODE-OF-ETHICS.md) — Princípios e responsabilidades
+## Observação
 
----
-
-## 📞 Contato
-
-**Endereço**  
-Manaus, Amazonas — Brasil
-
-**Suporte**  
-📧 support@tupansoft.com.br  
-📞 (92) 9 9999-0000  
-💬 WhatsApp: [Falar conosco](https://wa.me/5592999990000)
-
-**Empresa**  
-🌐 www.tupansoft.com.br  
-📘 [Facebook](#)  
-📸 [Instagram](#)  
-💼 [LinkedIn](#)
-
----
-
-## 📄 Licença
-
-© 2026 TupãSoft — Todos os direitos reservados.  
-Veja [Licenças](./09-LICENSES.md) para mais detalhes.
-
-## 🤝 Conformidade
-
-- ✅ **LGPD** — Lei Geral de Proteção de Dados Pessoais (Brasil)
-- ✅ **GDPR** — General Data Protection Regulation (Europa, se aplicável)
-- ✅ **ISO/IEC 27001** — Information Security Management
-- ✅ **PCI DSS** — Payment Card Industry Data Security Standard (se aplicável)
-
----
-
-**Última atualização:** 7 de Abril de 2026  
-**Versão da Documentação:** 1.0.0
+Alguns documentos antigos ainda carregam linguagem comercial. A revisão desta pasta deve sempre manter o tom de planejamento e não de promessa de mercado.
