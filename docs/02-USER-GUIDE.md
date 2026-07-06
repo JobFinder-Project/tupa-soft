@@ -181,45 +181,6 @@ na seção de avaliações, são exibidas as 5 mais recentes e o usuário pode d
 
 ---
 
-## 💬 Falar no WhatsApp
-
-### Formas de Contato
-
-#### Opção 1: Botões de Contato no Site
-
-1. Role até o banner de CTA ou o rodapé
-2. Clique **"💬 Falar no WhatsApp"**
-3. WhatsApp Desktop ou Web abre
-4. Mensagem pré-formatada é enviada
-
-**Mensagem automática:**
-
-```
-Olá! Tenho interesse no software: [Nome] (R$ [Preço]/[Período])
-```
-
-#### Opção 2: Checkout via Carrinho
-
-1. Adicione produtos ao carrinho
-2. Clique no ícone 🛒 (topo)
-3. Clique **"💬 Fechar via WhatsApp"**
-4. Mensagem incluirá lista completa de produtos
-
-**Mensagem automática:**
-
-```
-Olá, TupãSoft! Gostaria de adquirir:
-
-• SuperMarket Total — R$ 799/mês
-• CalcPro Fiscal — R$ 297/licença
-
-Total: R$ 1.096
-
-Aguardo contato!
-```
-
----
-
 ## ♿ Acessibilidade
 
 O TupãSoft foi desenvolvido com acessibilidade em mente:

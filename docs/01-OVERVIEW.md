@@ -18,8 +18,7 @@ O nome homenageia **Tupã**, deus do trovão na mitologia Tupi-Guarani, símboli
 | ------------------ | --------------------------------------------------------------------------- |
 | **Acessibilidade** | Catálogo de softwares com busca, filtros e detalhes intuitivos              |
 | **Conversão**      | Fluxo de compra com formulário estruturado, comprovante por email e WhatsApp |
-| **Rastreamento**   | Dashboard com aba de contratos mostrando progresso de aquisição e pagamentos |
-| **Suporte**        | Atendimento diferenciado: TupãSoft 24h / Terceiros 24h                      |
+| **Rastreamento**   | Dashboard com aba de contratos mostrando progresso de aquisição e pagamentos |                    |
 | **Flexibilidade**  | Atendimento em três modelos: próprio, revenda e sob demanda                 |
 | **Confiabilidade** | Sistema seguro, conforme com LGPD e boas práticas de mercado                |
 
@@ -194,63 +193,11 @@ tupa-soft/
 
 ---
 
-## 🔄 Fluxo Funcional
-
-### Fluxo de Usuário
-
-```
-1. Usuário chega no site
-   ↓
-2. Browse/Busca produtos
-   ├─ Busca textual (debounce, acentos)
-   ├─ Filtro por categoria
-   ├─ Filtro por faixa de preço
-   └─ Ordenação (preço, rating)
-   ↓
-3. Clica em produto → Modal de detalhes
-   ├─ Vê features, rating, descrição e empresa (se terceiro)
-   ├─ Opção 1: Adiciona ao carrinho
-   ├─ Opção 2: Fala no WhatsApp direto
-   └─ Opção 3: Solicita versão personalizada
-   ↓
-4. Carrinho (localStorage)
-   ├─ Ver itens adicionados
-   └─ Preencher formulário de contato
-   ↓
-5. Formulário de Contato
-   ├─ Dados pessoais (nome, email, empresa, telefone)
-   ├─ Produtos selecionados
-   ├─ Descrição da necessidade
-   └─ Submeter
-   ↓
-6. Confirmação
-   ├─ Comprovante de pedido enviado por email
-   ├─ Cliente recebe número de protocolo
-   └─ Acesso ao dashboard de contratos para acompanhamento
-   ↓
-7. Equipe TupãSoft
-   ├─ Recebe notificação
-   ├─ Analisa requisição
-   └─ Responde em até 24h (email ou WhatsApp se necessário)
-   ↓
-8. Progresso do Pedido
-   ├─ Etapa 1: Formulário recebido
-   ├─ Etapa 2: Análise
-   ├─ Etapa 3: Proposta enviada
-   ├─ Etapa 4: Negociação (email/WhatsApp)
-   ├─ Etapa 5: Contrato assinado
-   ├─ Etapa 6: Acesso liberado
-   └─ Etapa 7: Suporte ativo
-```
-
----
-
 ## ⚡ Funcionalidades Principais
 
 ### MVP Atual (v1.0)
 
 - ✅ Catálogo com 12 softwares em 6 categorias
-- ✅ Busca com debounce e normalização de acentos
 - ✅ Filtros por categoria, preço e ordenação
 - ✅ Carrinho com persistência via localStorage
 - ✅ Modal de detalhes com features, rating e empresa (se terceiro)
@@ -259,8 +206,6 @@ tupa-soft/
 - ✅ Dashboard com aba de contratos (progresso + histórico de pagamentos)
 - ✅ Rastreamento de etapas: recebimento → análise → proposta → negociação → contrato → acesso → suporte
 - ✅ Integração WhatsApp (backup para má comunicação ou negociação rápida)
-- ✅ Suporte por email (24h), WhatsApp apenas em emergências
-- ✅ Operação comercial híbrida (produto próprio, revenda e projeto sob demanda)
 
 ### Roadmap Futuro
 
