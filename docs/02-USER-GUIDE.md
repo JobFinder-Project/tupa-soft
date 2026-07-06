@@ -124,7 +124,11 @@ A busca funciona com:
 - 📝 **Descrição** — O que o software faz
 - ✅ **Funcionalidades** — Lista de features principais
 - 💵 **Preço** — Valor mensal ou licença única
-- 📞 **Ações** — Adicionar ao carrinho ou falar no WhatsApp
+- 📌 **Ações** — Adicionar ao carrinho e **Ver** detalhes
+- 🎥 **Preview do produto** — Link para a página com o vídeo de demonstração
+
+ao clicar no botão **Ver**, o usuário é redirecionado para a página do produto, mostrando o vídeo de utilização do software, descrição detalhada, funcionalidades, avaliações e dois botões: **Adicionar ao carrinho** e **Comprar agora**.
+na seção de avaliações, são exibidas as 5 mais recentes e o usuário pode deixar a própria avaliação.
 
 ### Exemplo de Card
 
@@ -179,11 +183,11 @@ A busca funciona com:
 
 ## 💬 Falar no WhatsApp
 
-### Duas Formas de Contato
+### Formas de Contato
 
-#### Opção 1: Botão Direto no Modal
+#### Opção 1: Botões de Contato no Site
 
-1. Abra detalhes do produto
+1. Role até o banner de CTA ou o rodapé
 2. Clique **"💬 Falar no WhatsApp"**
 3. WhatsApp Desktop ou Web abre
 4. Mensagem pré-formatada é enviada

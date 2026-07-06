@@ -40,6 +40,23 @@
 
 ---
 
+## Missão, Visão e Valores
+
+### Missão
+Oferecer software confiável e acessível para PMEs, com atendimento próximo e foco na realidade da Região Norte.
+
+### Visão
+Ser a principal plataforma regional de soluções em software para PMEs, reconhecida pela qualidade, suporte e impacto no crescimento dos clientes.
+
+### Valores
+- Transparência e etica nos relacionamentos
+- Foco no cliente e no resultado
+- Simplicidade e usabilidade
+- Inovacao com responsabilidade
+- Parcerias de curto e longo prazo
+
+---
+
 ## 🎯 Objetivos Estratégicos
 
 ### Curto Prazo (0-6 meses)
